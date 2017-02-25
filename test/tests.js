@@ -158,8 +158,8 @@ describe('Module Decompose.js', function () {
     })
 
     describe('expect(value)', function () {
-      describe('.eq(compare)', function () {
-        it('expect #1', () => {
+      describe('.to.eq(compare)', function () {
+        it('#1', () => {
           const { expect: decomposeExpect } = require('../src/expect')
 
           const a = {}
@@ -171,13 +171,22 @@ describe('Module Decompose.js', function () {
           expect(() => { decomposeExpect(c).eq(c) }).not.to.throwException()
           expect(() => { decomposeExpect(c).eql(c) }).not.to.throwException()
 
-          // With to
+          /* With .to.eq */
           expect(() => { decomposeExpect(b).to.eq(c) }).to.throwException()
           expect(() => { decomposeExpect(b).to.eql(c) }).to.throwException()
           expect(() => { decomposeExpect(c).to.eq(c) }).not.to.throwException()
           expect(() => { decomposeExpect(c).to.eql(c) }).not.to.throwException()
         })
       })
+
+      describe('.not.to.eq(compare)', function () {
+
+        it('#1', () => {
+
+        })
+
+      })
+
     })
   })
 })

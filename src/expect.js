@@ -30,8 +30,6 @@ function eql (deObjArg, deCompareObjArg) {
   })
 }
 
-
-
 /**
  * Inspiration by expect.js
  */
@@ -52,14 +50,38 @@ function expect (objArg) {
     }
   }
 
-  return {
+  const semanticNotEq = {
+    eq: notEqThrow,
+    eql: notEqThrow,
+    toEq: notEqThrow,
+    toEql: notEqThrow,
+    toToEql: notEqThrow,
+    to: {
+      eq: notEqThrow,
+      notEq: notEqThrow,
+      eql: notEqThrow,
+      toEql: notEqThrow
+    }
+  }
+
+  const semanticEq = {
     eq: eqThrow,
     eql: eqThrow,
+    toEq: eqThrow,
+    toEql: eqThrow,
     to: {
       eq: eqThrow,
       eql: eqThrow,
-    }
+      not: semanticNotEq
+    },
+    notEq: notEqThrow,
+    notEql: notEqThrow,
+    notToEq: notEqThrow,
+    notToEql: notEqThrow,
+    not: semanticNotEq
   }
+
+  return semanticEq
 }
 
 exports = module.exports = {
