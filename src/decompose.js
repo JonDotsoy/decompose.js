@@ -1,3 +1,9 @@
+const memUniqueId = {n:0}
+const uniqueId = () => {
+  memUniqueId.n += 1
+  return memUniqueId.n
+}
+
 function isObject (objArg) { return Object(objArg) === objArg }
 
 function isFunction (proposal) { return typeof (proposal) === 'function' }
