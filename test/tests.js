@@ -285,4 +285,53 @@ describe('Module Decompose.js', function () {
       })
     })
   })
+
+  describe('/logger.js', function () {
+
+    describe('logger(decomposedObj, format)', function () {
+
+      beforeEach(() => {
+        global.memUniqueIdFromEntity = {n: 0, collection: new Set()}
+        global.decomposeGlobalUniqueID = 'on'
+        global.decomposeAssignUniqueID = 'on'
+      })
+
+      after(() => {
+        global.memUniqueIdFromEntity = void(0)
+        global.decomposeGlobalUniqueID = 'off'
+        global.decomposeAssignUniqueID = 'off'
+      })
+
+      it('markdown format #1', () => {
+
+        const {decompose} = require('../src/decompose.js')
+        const {logger} = require('../src/logger.js')
+
+        const c = ["true"]
+        const obj = {
+          c,
+          [Symbol('a')]: {
+            c,
+            b: 3
+          },
+          ['l']: {
+            c
+          }
+        }
+
+        const expectResult =
+          '| path | uniqueId | value |'
+
+
+        console.log(logger(decompose({obj})))
+
+
+      })
+
+    })
+
+
+  })
 })
+
+

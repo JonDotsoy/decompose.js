@@ -1,14 +1,14 @@
 const memUniqueIdFromEntity = global.decomposeGlobalUniqueID !== 'off'
   ? global.memUniqueIdFromEntity ? global.memUniqueIdFromEntity : (global.memUniqueIdFromEntity = {n: 0, collection: new Set()})
-  : ({n: 0, collection: new Set()})
+  : ({n: 0, collection: new Map()})
 
 const uniqueIdFromEntity = (obj) => {
   if (!memUniqueIdFromEntity.collection.has(obj)) {
-    memUniqueIdFromEntity.collection.add(obj)
     memUniqueIdFromEntity.n += 1
+    memUniqueIdFromEntity.collection.set(obj, memUniqueIdFromEntity.n)
   }
-  console.log(memUniqueIdFromEntity.n)
-  return memUniqueIdFromEntity.n
+
+  return memUniqueIdFromEntity.collection.get(obj)
 }
 
 function isObject (objArg) { return Object(objArg) === objArg }
@@ -31,23 +31,30 @@ function decompose (objArg, fn, prefix = [], history = new Set()) {
   let collection = []
 
   if (prefix.length === 0) {
-    collection.push([ [], objArg ])
+    const toPush = [ [], objArg ]
+
+    if (global.decomposeAssignUniqueID !== 'off') {
+      toPush.push(uniqueIdFromEntity(objArg))
+    }
+
+    collection.push(toPush)
   }
 
   getKeys(objArg).forEach((index) => {
     const content = objArg[index]
     const _i = [].concat(prefix, index)
 
+
+    const toPush = [_i, content]
+
+    if (global.decomposeAssignUniqueID !== 'off') {
+      toPush.push(uniqueIdFromEntity(content))
+    }
+
+    collection.push(toPush)
+
     if (!history.has(content)) {
       if (isObject(content)) history.add(content)
-
-      const toPush = [_i, content]
-
-      if (global.decomposeAssignUniqueID !== 'off') {
-        toPush.push(uniqueIdFromEntity(content))
-      }
-
-      collection.push(toPush)
 
       if (typeof (content) === 'object') {
         const _o = decompose(content, fn, _i, history)
