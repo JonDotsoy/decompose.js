@@ -60,7 +60,7 @@ function expect (objArg) {
       eq: notEqThrow,
       notEq: notEqThrow,
       eql: notEqThrow,
-      toEql: notEqThrow
+      notEql: notEqThrow
     }
   }
 

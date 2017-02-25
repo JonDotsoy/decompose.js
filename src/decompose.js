@@ -19,6 +19,14 @@ function getKeys (objArg) {
   return isObject(objArg) ? [].concat(Object.getOwnPropertySymbols(objArg), Object.getOwnPropertyNames(objArg)) : []
 }
 
+/**
+ * @param {*}        objArg  - Object to decompose.
+ * @param {Function} fn      - ¯\_(ツ)_/¯ 
+ * @param {Array}    prefix  - Array to prefix.
+ * @param {Set}      history - history to ignore setter on collection.
+ *
+ * @return {Array<{ '0': [String|Symbol], '1':* [, '2':Number] }>} Collection of the referencies
+ */
 function decompose (objArg, fn, prefix = [], history = new Set()) {
   let collection = []
 

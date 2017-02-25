@@ -31,7 +31,7 @@ describe('Module Decompose.js', function () {
       it('compare pointer/reference', function () {
         const { decompose } = require('../src/decompose')
 
-    // declare
+        // declare
         let a = {}
         let b = {}
         let c = Symbol('c')
@@ -42,11 +42,11 @@ describe('Module Decompose.js', function () {
         let h = 'string'
         let i = true
 
-    // Circular
+        // Circular
         b.b = b
         a.b = b
 
-    // Symbol
+        // Symbol
         a[c] = d
 
         d.i = i
@@ -72,39 +72,39 @@ describe('Module Decompose.js', function () {
 
         const deMyObj = decompose(myObj)
 
-    // // LOGGER
-    // const lastDeMyObj = last(deMyObj)
+        // // LOGGER
+        // const lastDeMyObj = last(deMyObj)
 
-    // console.log('[')
-    // deMyObj.forEach((e) => {
-    //   const [path, value] = e
-    //   process.stdout.write('  ')
-    //   process.stdout.write('[ ')
-    //   process.stdout.write( padEnd( JSON.stringify( path ), 15 ) )
-    //   process.stdout.write(', ')
-    //   process.stdout.write( padEnd( JSON.stringify( value ), 38 ) )
-    //   if (e===lastDeMyObj) {
-    //     process.stdout.write(' ]')
-    //   } else {
-    //     process.stdout.write(' ],')
-    //   }
-    //   process.stdout.write('\n')
-    // })
-    // console.log(']')
+        // console.log('[')
+        // deMyObj.forEach((e) => {
+        //   const [path, value] = e
+        //   process.stdout.write('  ')
+        //   process.stdout.write('[ ')
+        //   process.stdout.write( padEnd( JSON.stringify( path ), 15 ) )
+        //   process.stdout.write(', ')
+        //   process.stdout.write( padEnd( JSON.stringify( value ), 38 ) )
+        //   if (e===lastDeMyObj) {
+        //     process.stdout.write(' ]')
+        //   } else {
+        //     process.stdout.write(' ],')
+        //   }
+        //   process.stdout.write('\n')
+        // })
+        // console.log(']')
 
         expect(deMyObj).to.be.eql(
           [
-        [ [], {'a': {'b': 0}, 'c': [{'d': 1}, {'e': true}]} ],
-        [ ['a'], {'b': 0} ],
-        [ ['a', 'b'], 0 ],
-        [ ['c'], [{'d': 1}, {'e': true}] ],
-        [ ['c', '0'], {'d': 1} ],
-        [ ['c', '0', 'd'], 1 ],
-        [ ['c', '1'], {'e': true} ],
-        [ ['c', '1', 'e'], true ],
-        [ ['c', 'length'], 2 ]
+            [ [], {'a': {'b': 0}, 'c': [{'d': 1}, {'e': true}]} ],
+            [ ['a'], {'b': 0} ],
+            [ ['a', 'b'], 0 ],
+            [ ['c'], [{'d': 1}, {'e': true}] ],
+            [ ['c', '0'], {'d': 1} ],
+            [ ['c', '0', 'd'], 1 ],
+            [ ['c', '1'], {'e': true} ],
+            [ ['c', '1', 'e'], true ],
+            [ ['c', 'length'], 2 ]
           ]
-    )
+        )
       })
 
       it('Example with muted object', () => {
@@ -162,6 +162,86 @@ describe('Module Decompose.js', function () {
     })
 
     describe('expect(value)', function () {
+      describe('semantic', function () {
+        it('expect().eq()', () => {
+          let a = {}
+          require('../src/expect').expect(a).eq(a)
+        })
+
+        it('expect().eql()', () => {
+          let a = {}
+          require('../src/expect').expect(a).eql(a)
+        })
+
+        it('expect().toEql()', () => {
+          let a = {}
+          require('../src/expect').expect(a).toEql(a)
+        })
+
+        it('expect().toEq()', () => {
+          let a = {}
+          require('../src/expect').expect(a).toEq(a)
+        })
+
+        it('expect().to.eq()', () => {
+          let a = {}
+          require('../src/expect').expect(a).to.eq(a)
+        })
+
+        it('expect().to.eql()', () => {
+          let a = {}
+          require('../src/expect').expect(a).to.eql(a)
+        })
+
+        it('expect().not.to.eq()', () => {
+          let a = {}
+          let b = {}
+          require('../src/expect').expect(a).not.to.eq(b)
+        })
+
+        it('expect().not.to.eql()', () => {
+          let a = {}
+          let b = {}
+          require('../src/expect').expect(a).not.to.eql(b)
+        })
+
+        it('expect().not.toEql()', () => {
+          let a = {}
+          let b = {}
+          require('../src/expect').expect(a).not.toEql(b)
+        })
+
+        it('expect().not.toEq()', () => {
+          let a = {}
+          let b = {}
+          require('../src/expect').expect(a).not.toEq(b)
+        })
+
+        it('expect().notEq()', () => {
+          let a = {}
+          let b = {}
+          require('../src/expect').expect(a).notEq(b)
+        })
+
+        it('expect().notEql()', () => {
+          let a = {}
+          let b = {}
+          require('../src/expect').expect(a).notEql(b)
+        })
+
+        it('expect().notToEql()', () => {
+          let a = {}
+          let b = {}
+          require('../src/expect').expect(a).notToEql(b)
+        })
+
+        it('expect().notToEq()', () => {
+          let a = {}
+          let b = {}
+          require('../src/expect').expect(a).notToEq(b)
+        })
+      })
+
       describe('.to.eq(compare)', function () {
         it('#1', () => {
           const { expect: decomposeExpect } = require('../src/expect')
