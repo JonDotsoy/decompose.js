@@ -1,6 +1,6 @@
 *.js 
-decompose.js
-eql.js
+!decompose.js
+!eql.js
 
 .travis.yml 
 .tnode5.docker 
