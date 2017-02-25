@@ -1,4 +1,5 @@
 # decompose.js [![Build Status](https://travis-ci.org/JonDotsoy/decompose.js.svg?branch=master)](https://travis-ci.org/JonDotsoy/decompose.js)
+Decompose a object.
 
 ## Inspiration
 read the next publicactión on [stackoverflow](stackoverflow/questions/8318357).
