@@ -19,11 +19,10 @@
   ],
   "author": "Jonathan Delgado <hi@jon.soy>",
   "license": "MIT",
-  "dependencies": {
-    "lodash": "^4.17.4",
-    "symbol": "^0.3.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "lodash": "^4.17.4",
+    "symbol": "^0.3.0",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-stage-2": "^6.22.0",
     "expect.js": "^0.3.1",
