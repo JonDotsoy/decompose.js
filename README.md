@@ -1,6 +1,7 @@
 # decompose.js
 
 [![Build Status](https://travis-ci.org/JonDotsoy/decompose.js.svg?branch=master)](https://travis-ci.org/JonDotsoy/decompose.js)
+[![npm](https://img.shields.io/npm/v/decompose.js.svg)](https://www.npmjs.com/package/decompose.js)
 
 Decompose a object.
 
