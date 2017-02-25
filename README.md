@@ -6,7 +6,7 @@
 Decompose a object.
 
 ## Inspiration
-read the next publicactión on [stackoverflow](stackoverflow/questions/8318357).
+Read the next publicactión on [stackoverflow](stackoverflow-questions-8318357).
 Would not it be great to know everything about an object? — This library allows it!!.
 
 ## Example
@@ -31,7 +31,6 @@ decompose( myObj ) // => Array
 ```
 
 
-
-[stackoverflow/questions/8318357]: http://stackoverflow.com/questions/8318357/javascript-pointer-reference-craziness-can-someone-explain-this "Javascript pointer/reference craziness. Can someone explain this?"
+[stackoverflow-questions-8318357]: http://stackoverflow.com/questions/8318357/javascript-pointer-reference-craziness-can-someone-explain-this "Javascript pointer/reference craziness. Can someone explain this?"
 
 
