@@ -30,9 +30,42 @@ function eql (deObjArg, deCompareObjArg) {
   })
 }
 
+
+
+/**
+ * Inspiration by expect.js
+ */
+function expect (objArg) {
+  const value = decompose(objArg)
+
+  const eq = (compare) => eql(value, decompose(compare))
+
+  const eqThrow = (compare) => {
+    if (!eq(compare)) {
+      throw new Error(`The value (${JSON.stringify(objArg)}) is not equals to compare (${JSON.stringify(compare)}).`)
+    }
+  }
+
+  const notEqThrow = (compare) => {
+    if (eq(compare)) {
+      throw new Error(`The value (${value}) is equals to compare (${compare}).`)
+    }
+  }
+
+  return {
+    eq: eqThrow,
+    eql: eqThrow,
+    to: {
+      eq: eqThrow,
+      eql: eqThrow,
+    }
+  }
+}
+
 exports = module.exports = {
   __esModule: true,
-  default: eql,
+  default: expect,
+  expect,
   eql
 }
 
