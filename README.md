@@ -6,7 +6,7 @@
 Decompose a object.
 
 ## Inspiration
-Read the next publicactión on [stackoverflow](stackoverflow-questions-8318357).
+Read the next publicactión on [stackoverflow][stackoverflow-questions-8318357].
 Would not it be great to know everything about an object? — This library allows it!!.
 
 ## Example
