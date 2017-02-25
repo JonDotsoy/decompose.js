@@ -7,7 +7,7 @@
     "tnode5": "docker build -f .tnode5.docker .",
     "tnode6": "docker build -f .tnode6.docker .",
     "tnode7": "docker build -f .tnode7.docker .",
-    "prepublish": "gulp build",
+    "build": "gulp build",
     "test": "mocha"
   },
   "directories": {
