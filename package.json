@@ -1,7 +1,7 @@
 {
   "name": "decompose.js",
   "description": "Decompose a object.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "decompose.js",
   "scripts": {
     "tnode5": "docker build -f .tnode5.docker .",
