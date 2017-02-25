@@ -131,11 +131,26 @@ describe('Module decompose.js', function () {
   })
 
   describe('eql(obj, other) => Boolean', function () {
-    it('compare 2 object', () => {
+    it('Comporation #1', () => {
+      const { decompose } = require('../src/decompose')
       const { eql } = require('../src/eql')
 
-      console.log( eql.info( {a: 3}, {a: 3} ) )
+      const a = Symbol('a')
+      const obj = {[a]:{b:3}}
 
+      const dePrevObj = decompose(obj)
+
+      obj[a]={b:obj[a].b}
+
+      const deNextObj = decompose(obj)
+
+      expect( dePrevObj ).to.eql( deNextObj )
+      expect( dePrevObj[0][1] ).to.be( deNextObj[0][1] )
+      expect( dePrevObj[1][1] ).not.to.be( deNextObj[1][1] )
+      expect( dePrevObj[2][1] ).to.be( deNextObj[2][1] )
+
+      // With decompose/eql
+      expect( eql(dePrevObj, deNextObj) ).to.be(false)
     })
   })
 })
