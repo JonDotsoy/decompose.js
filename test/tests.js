@@ -102,4 +102,32 @@ describe('decompose', function () {
     )
 
   })
+
+
+  it('Example with muted object', () => {
+    const { decompose } = require('../src/decompose')
+
+    const fnToMutableObj = (obj) => Object.assign(obj, {a: Object.assign({},{b: obj.a.b})})
+
+    const prevObj = {
+      a: {
+        b: {
+          c: 1
+        }
+      }
+    }
+
+    const dePrevObj = decompose( prevObj )
+
+    const nextObj = fnToMutableObj( prevObj )
+
+    const deNextObj = decompose( nextObj )
+
+    expect( dePrevObj[0][1] ).to.be( deNextObj[0][1] )
+    expect( dePrevObj[1][1] ).not.to.be( deNextObj[1][1] )
+    expect( dePrevObj[2][1] ).to.be( deNextObj[2][1] )
+    expect( dePrevObj[3][1] ).to.be( deNextObj[3][1] )
+
+  })
+
 })
