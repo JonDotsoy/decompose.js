@@ -1,5 +1,6 @@
 const expect = require('expect.js')
 const padEnd = require('lodash/padEnd')
+const get = require('lodash/get')
 const last = require('lodash/last')
 
 describe('decompose', function () {
@@ -35,9 +36,27 @@ describe('decompose', function () {
     let h = "string"
     let i = true
 
+    // Circular
+    b.b=b
+    a.b=b
 
-    console.log( {c,e} )
+    // Symbol
+    a[c] = d
 
+    d.i=i
+    a.h=h
+    d.f=f
+    f.e=e
+
+    const deMyObj = decompose( a )
+
+    expect(deMyObj[0][1]).to.be(a)
+    expect(deMyObj[1][0][0]).to.be(c)
+    expect(deMyObj[1][1]).to.be(d)
+    expect(deMyObj[2][1]).to.be(i)
+    expect(deMyObj[3][1]).to.be(f)
+    expect(deMyObj[4][1]).to.be(e)
+    expect(deMyObj[5][1]).to.be(b)
 
   })
 
@@ -48,24 +67,39 @@ describe('decompose', function () {
 
     const deMyObj = decompose( myObj )
 
-    const lastDeMyObj = last(deMyObj)
+    // // LOGGER
+    // const lastDeMyObj = last(deMyObj)
     
-    console.log('[')
-    deMyObj.forEach((e) => {
-      const [path, value] = e
-      process.stdout.write('  ')
-      process.stdout.write('[ ')
-      process.stdout.write( padEnd( JSON.stringify( path ), 15 ) )
-      process.stdout.write(', ')
-      process.stdout.write( padEnd( JSON.stringify( value ), 38 ) )
-      if (e===lastDeMyObj) {
-        process.stdout.write(' ]')
-      } else {
-        process.stdout.write(' ],')
-      }
-      process.stdout.write('\n')
-    })
-    console.log(']')
+    // console.log('[')
+    // deMyObj.forEach((e) => {
+    //   const [path, value] = e
+    //   process.stdout.write('  ')
+    //   process.stdout.write('[ ')
+    //   process.stdout.write( padEnd( JSON.stringify( path ), 15 ) )
+    //   process.stdout.write(', ')
+    //   process.stdout.write( padEnd( JSON.stringify( value ), 38 ) )
+    //   if (e===lastDeMyObj) {
+    //     process.stdout.write(' ]')
+    //   } else {
+    //     process.stdout.write(' ],')
+    //   }
+    //   process.stdout.write('\n')
+    // })
+    // console.log(']')
+
+    expect(deMyObj).to.be.eql(
+      [
+        [ []             , {"a":{"b":0},"c":[{"d":1},{"e":true}]} ],
+        [ ["a"]          , {"b":0}                                ],
+        [ ["a","b"]      , 0                                      ],
+        [ ["c"]          , [{"d":1},{"e":true}]                   ],
+        [ ["c","0"]      , {"d":1}                                ],
+        [ ["c","0","d"]  , 1                                      ],
+        [ ["c","1"]      , {"e":true}                             ],
+        [ ["c","1","e"]  , true                                   ],
+        [ ["c","length"] , 2                                      ]
+      ]
+    )
 
   })
 })
