@@ -2,7 +2,7 @@
 
 ## Inspiration
 read the next publicactión on [stackoverflow](stackoverflow/questions/8318357).
-Would not it be great to know everything about an object? — This library allows it !!.
+Would not it be great to know everything about an object? — This library allows it!!.
 
 ## Example
 
