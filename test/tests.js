@@ -176,7 +176,6 @@ describe('Module Decompose.js', function () {
           expect(() => { decomposeExpect(b).to.eql(c) }).to.throwException()
           expect(() => { decomposeExpect(c).to.eq(c) }).not.to.throwException()
           expect(() => { decomposeExpect(c).to.eql(c) }).not.to.throwException()
-
         })
       })
     })
