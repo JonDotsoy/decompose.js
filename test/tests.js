@@ -3,6 +3,10 @@ const padEnd = require('lodash/padEnd')
 const get = require('lodash/get')
 const last = require('lodash/last')
 
+// Configure global options to decompose
+global.decomposeGlobalUniqueID = 'off'
+global.decomposeAssignUniqueID = 'off'
+
 describe('Module Decompose.js', function () {
   describe('/decompose.js', function () {
     describe('decompose(obj) => decomposition', function () {

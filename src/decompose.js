@@ -1,7 +1,14 @@
-const memUniqueId = {n:0}
-const uniqueId = () => {
-  memUniqueId.n += 1
-  return memUniqueId.n
+const memUniqueIdFromEntity = global.decomposeGlobalUniqueID !== 'off'
+  ? global.memUniqueIdFromEntity ? global.memUniqueIdFromEntity : (global.memUniqueIdFromEntity = {n: 0, collection: new Set()})
+  : ({n: 0, collection: new Set()})
+
+const uniqueIdFromEntity = (obj) => {
+  if (!memUniqueIdFromEntity.collection.has(obj)) {
+    memUniqueIdFromEntity.collection.add(obj)
+    memUniqueIdFromEntity.n += 1
+  }
+  console.log(memUniqueIdFromEntity.n)
+  return memUniqueIdFromEntity.n
 }
 
 function isObject (objArg) { return Object(objArg) === objArg }
@@ -26,7 +33,13 @@ function decompose (objArg, fn, prefix = [], history = new Set()) {
     if (!history.has(content)) {
       if (isObject(content)) history.add(content)
 
-      collection.push([_i, content])
+      const toPush = [_i, content]
+
+      if (global.decomposeAssignUniqueID !== 'off') {
+        toPush.push(uniqueIdFromEntity(content))
+      }
+
+      collection.push(toPush)
 
       if (typeof (content) === 'object') {
         const _o = decompose(content, fn, _i, history)
