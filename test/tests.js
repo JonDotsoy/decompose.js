@@ -123,11 +123,14 @@ describe('decompose', function () {
 
     const deNextObj = decompose( nextObj )
 
+    expect( dePrevObj ).to.be.eql( deNextObj )
+    expect( prevObj ).to.be.eql( nextObj )
     expect( dePrevObj[0][1] ).to.be( deNextObj[0][1] )
     expect( dePrevObj[1][1] ).not.to.be( deNextObj[1][1] )
     expect( dePrevObj[2][1] ).to.be( deNextObj[2][1] )
     expect( dePrevObj[3][1] ).to.be( deNextObj[3][1] )
-
   })
+
+  
 
 })
