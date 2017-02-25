@@ -130,4 +130,5 @@ $RECYCLE.BIN/
 
 *.js 
 !src/*.js
+!test/*.js
 
