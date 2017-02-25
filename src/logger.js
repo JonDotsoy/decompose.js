@@ -3,8 +3,21 @@ const padEnd = require('lodash/padEnd')
 const max = require('lodash/max')
 const isSymbol = require('lodash/isSymbol')
 
+function jsonStringify (obj) {
+  const e = new Set()
+
+  return JSON.stringify(obj, (name, value)=> {
+    if (e.has(value)) {
+      return Object.create(value)
+    } else {
+      e.add(value)
+      return value
+    }
+  })
+}
+
 function getType (obj) {
-  return typeof(obj)
+  return obj.constructor.name
 }
 
 function pathToString (path) {
@@ -24,7 +37,7 @@ function pathToString (path) {
   })
   .join('.')
 
-  return `/${rtrn}`
+  return `${rtrn}`
 }
 
 function loggerMD (decomposedObjArg) {
@@ -34,8 +47,8 @@ function loggerMD (decomposedObjArg) {
   decomposedObjArg.forEach(([path, content, uniqueId]) => {
     prelines.push([
       pathToString(path),
-      uniqueId,
-      JSON.stringify(content),
+      (uniqueId).toString(16),
+      jsonStringify(content),
       getType(content)
     ])
   })

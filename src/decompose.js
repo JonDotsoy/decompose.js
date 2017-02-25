@@ -38,6 +38,10 @@ function decompose (objArg, fn, prefix = [], history = new Set()) {
     }
 
     collection.push(toPush)
+
+    if (!history.has(objArg)) {
+      if (isObject(objArg)) history.add(objArg)
+    }
   }
 
   getKeys(objArg).forEach((index) => {

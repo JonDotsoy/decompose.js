@@ -307,7 +307,12 @@ describe('Module Decompose.js', function () {
         const {decompose} = require('../src/decompose.js')
         const {logger} = require('../src/logger.js')
 
-        const c = ["true"]
+        class OObj {}
+
+        const c = ["true", new OObj]
+
+        c.push(c)
+
         const obj = {
           c,
           [Symbol('a')]: {
@@ -319,11 +324,13 @@ describe('Module Decompose.js', function () {
           }
         }
 
+        obj.obj = obj
+
         const expectResult =
           '| path | uniqueId | value |'
 
 
-        console.log(logger(decompose({obj})))
+        console.log(logger(decompose(obj)))
 
 
       })
