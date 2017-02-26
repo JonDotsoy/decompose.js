@@ -1,13 +1,15 @@
 const toLower = require('lodash/toLower')
+const toUpper = require('lodash/toUpper')
 const padEnd = require('lodash/padEnd')
 const max = require('lodash/max')
 const isSymbol = require('lodash/isSymbol')
+const {isObject} = require('./decompose')
 
 function jsonStringify (obj) {
   const e = new Set()
 
   return JSON.stringify(obj, (name, value)=> {
-    if (e.has(value)) {
+    if (isObject(value) && e.has(value)) {
       return Object.create(value)
     } else {
       e.add(value)
@@ -17,7 +19,7 @@ function jsonStringify (obj) {
 }
 
 function getType (obj) {
-  return obj.constructor.name
+  return !obj ? null : obj.constructor ? obj.constructor.name : typeof(obj)
 }
 
 function pathToString (path) {
@@ -47,7 +49,7 @@ function loggerMD (decomposedObjArg) {
   decomposedObjArg.forEach(([path, content, uniqueId]) => {
     prelines.push([
       pathToString(path),
-      (uniqueId).toString(16),
+      toUpper((uniqueId).toString(16)),
       jsonStringify(content),
       getType(content)
     ])
@@ -67,7 +69,7 @@ function loggerMD (decomposedObjArg) {
   })
 
   const withContent = [0].concat([[,, strContent]], prelines).reduce((n, [,, content]) => {
-    return max([n, content.length])
+    return max([n, String(content).length])
   })
 
   const withType = [0].concat([[,,, strType]], prelines).reduce((n, [,,, type]) => {

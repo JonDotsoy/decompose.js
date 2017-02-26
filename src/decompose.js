@@ -3,6 +3,11 @@ const memUniqueIdFromEntity = global.decomposeGlobalUniqueID !== 'off'
   : ({n: 0, collection: new Map()})
 
 const uniqueIdFromEntity = (obj) => {
+  if (!isObject(obj)) {
+    memUniqueIdFromEntity.n += 1
+    return memUniqueIdFromEntity.n
+  }
+
   if (!memUniqueIdFromEntity.collection.has(obj)) {
     memUniqueIdFromEntity.n += 1
     memUniqueIdFromEntity.collection.set(obj, memUniqueIdFromEntity.n)
@@ -74,5 +79,6 @@ function decompose (objArg, fn, prefix = [], history = new Set()) {
 exports = module.exports = {
   __esModule: true,
   default: decompose,
-  decompose
+  decompose,
+  isObject
 }

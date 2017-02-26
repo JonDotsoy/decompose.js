@@ -287,9 +287,7 @@ describe('Module Decompose.js', function () {
   })
 
   describe('/logger.js', function () {
-
     describe('logger(decomposedObj, format)', function () {
-
       beforeEach(() => {
         global.memUniqueIdFromEntity = {n: 0, collection: new Set()}
         global.decomposeGlobalUniqueID = 'on'
@@ -297,19 +295,18 @@ describe('Module Decompose.js', function () {
       })
 
       after(() => {
-        global.memUniqueIdFromEntity = void(0)
+        global.memUniqueIdFromEntity = void (0)
         global.decomposeGlobalUniqueID = 'off'
         global.decomposeAssignUniqueID = 'off'
       })
 
       it('markdown format #1', () => {
-
         const {decompose} = require('../src/decompose.js')
         const {logger} = require('../src/logger.js')
 
         class OObj {}
 
-        const c = ["true", new OObj]
+        const c = ['true', new OObj()]
 
         c.push(c)
 
@@ -317,28 +314,24 @@ describe('Module Decompose.js', function () {
           c,
           [Symbol('a')]: {
             c,
-            b: 3
+            b: 3,
+            n: /./,
+            m: OObj
           },
-          ['l']: {
+          '1': {
             c
           }
         }
 
-        obj.obj = obj
+        obj.i = obj
+        obj[Symbol('b')] = 'OObj'
 
-        const expectResult =
-          '| path | uniqueId | value |'
-
-
+        // console.time('Decompose global')
+        // decompose(global)
+        // console.timeEnd('Decompose global')
         console.log(logger(decompose(obj)))
-
-
       })
-
     })
-
-
   })
 })
-
 
