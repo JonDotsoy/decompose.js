@@ -285,7 +285,7 @@ describe('Module Decompose.js', function () {
       })
 
       describe('Show ERROR', function () {
-        it('', () => {
+        it.skip('', () => {
           const { expect } = require('../src/expect')
 
 
