@@ -1,4 +1,5 @@
 const toLower = require('lodash/toLower')
+const isFunction = require('lodash/isFunction')
 const chalk = require('chalk')
 const toUpper = require('lodash/toUpper')
 const padEnd = require('lodash/padEnd')
@@ -12,6 +13,8 @@ const DEFAULT_TAG_CIRCULAR = toTagCircular()
 
 function jsonStringify (obj, decomposedObjArg) {
   const e = new Set()
+
+  if (isFunction(obj)) return obj.toString()
 
   const rtrn = JSON.stringify(obj, (name, value) => {
     if (isObject(value) && e.has(value)) {
@@ -27,7 +30,11 @@ function jsonStringify (obj, decomposedObjArg) {
 }
 
 function getType (obj) {
-  return !obj ? null : obj.constructor ? obj.constructor.name : typeof (obj)
+  return isObject(obj)
+    ? obj.constructor
+      ? obj.constructor.name
+      : typeof(obj)
+    : typeof(obj)
 }
 
 function pathToString (path) {
