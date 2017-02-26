@@ -17,7 +17,7 @@ function normalizePath (pathArr) {
   }).join('.')
 }
 
-function eql (deObjArg, deCompareObjArg) {
+function eql (deObjArg, deCompareObjArg, fn) {
   if (deObjArg.length !== deCompareObjArg.length) return false
 
   return [true].concat(deObjArg).reduce((e, [path, value]) => {

@@ -65,7 +65,7 @@ function decompose (objArg, fn, prefix = [], history = new Set()) {
     if (!history.has(content)) {
       if (isObject(content)) history.add(content)
 
-      if (typeof (content) === 'object') {
+      if (isObject( content )) {
         const _o = decompose(content, fn, _i, history)
 
         collection = collection.concat(_o)

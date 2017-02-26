@@ -283,6 +283,17 @@ describe('Module Decompose.js', function () {
           expect(() => { decomposeExpect(c).not.to.eql(c) }).to.throwException()
         })
       })
+
+      describe('Show ERROR', function () {
+        it('', () => {
+          const { expect } = require('../src/expect')
+
+
+          expect({}).to.eq({})
+
+        })
+      })
+
     })
   })
 
@@ -300,7 +311,7 @@ describe('Module Decompose.js', function () {
         global.decomposeAssignUniqueID = 'off'
       })
 
-      it.skip('markdown format #1', () => {
+      it('markdown format #1', () => {
         const {decompose} = require('../src/decompose.js')
         const {logger} = require('../src/logger.js')
 
@@ -331,7 +342,7 @@ describe('Module Decompose.js', function () {
         }
 
         obj.i = obj
-        obj.u = Object
+        // obj.u = Object
         obj[Symbol('b')] = 'OObj'
 
         console.log( logger( decompose( obj ) ) )
