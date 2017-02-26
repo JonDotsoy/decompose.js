@@ -289,7 +289,7 @@ describe('Module Decompose.js', function () {
   describe('/logger.js', function () {
     describe('logger(decomposedObj, format)', function () {
       beforeEach(() => {
-        global.memUniqueIdFromEntity = {n: 0, collection: new Set()}
+        global.memUniqueIdFromEntity = ({n: 0, collection: new Map(), collectionkey: new Map()})
         global.decomposeGlobalUniqueID = 'on'
         global.decomposeAssignUniqueID = 'on'
       })

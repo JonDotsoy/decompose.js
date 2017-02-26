@@ -9,12 +9,14 @@ const {isObject} = require('./decompose')
 const toTagCircular = (e)=>e?`[Circular ${e}]`:"[Circular]"
 const DEFAULT_TAG_CIRCULAR = toTagCircular()
 
-function jsonStringify (obj) {
+
+function jsonStringify (obj, decomposedObjArg) {
   const e = new Set()
 
   const rtrn = JSON.stringify(obj, (name, value) => {
     if (isObject(value) && e.has(value)) {
-      return DEFAULT_TAG_CIRCULAR
+      const [,,uid] = decomposedObjArg.find(([,content]) => content===value)
+      return toTagCircular(uid)
     } else {
       e.add(value)
       return value
@@ -53,10 +55,12 @@ function loggerMD (decomposedObjArg) {
   const lines = []
 
   decomposedObjArg.forEach(([path, content, uniqueId]) => {
+    const uid = toUpper((uniqueId).toString(16))
+
     prelines.push([
       pathToString(path),
-      toUpper((uniqueId).toString(16)),
-      String(jsonStringify(content)),
+      uid,
+      String(jsonStringify(content, decomposedObjArg)),
       getType(content)
     ])
   })
@@ -87,7 +91,7 @@ function loggerMD (decomposedObjArg) {
   lines.push(`| ${padEnd('', withPath, '-')} | ${padEnd('', withUniqueID, '-')} | ${padEnd('', withType, '-')} | ${padEnd('', withContent, '-')} |`)
 
   prelines.forEach(([path, uniqueId, content, type]) => {
-    const contentSyled = content.replace(new RegExp(`"${DEFAULT_TAG_CIRCULAR.replace(/([^\w])/, '\\$1')}"`, 'ig'), chalk.green(DEFAULT_TAG_CIRCULAR))
+    const contentSyled = content.replace(/\"(\[Circular [0-9|A-F]+\])\"/g, chalk.green(' $1 '))
 
     lines.push(`| ${padEnd(path, withPath)} | ${padEnd(uniqueId, withUniqueID)} | ${padEnd(type, withType)} | ${padEnd(contentSyled, withContent)} |`)
   })
