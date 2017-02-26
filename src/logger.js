@@ -12,7 +12,7 @@ const DEFAULT_TAG_CIRCULAR = toTagCircular()
 function jsonStringify (obj) {
   const e = new Set()
 
-  return JSON.stringify(obj, (name, value) => {
+  const rtrn = JSON.stringify(obj, (name, value) => {
     if (isObject(value) && e.has(value)) {
       return DEFAULT_TAG_CIRCULAR
     } else {
@@ -20,6 +20,8 @@ function jsonStringify (obj) {
       return value
     }
   })
+
+  return rtrn
 }
 
 function getType (obj) {
