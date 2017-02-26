@@ -26,7 +26,9 @@ function jsonStringify (obj, decomposedObjArg) {
 
     if (isObject(value) && e.has(value)) {
       const [,,uid] = decomposedObjArg.find(([,content]) => content===value)
-      return toTagCircular(uid)
+      const uidStyled = toUpper((uid).toString(16))
+
+      return toTagCircular(uidStyled)
     } else {
       e.add(value)
       return value
