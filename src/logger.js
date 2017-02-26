@@ -8,7 +8,7 @@ const {isObject} = require('./decompose')
 function jsonStringify (obj) {
   const e = new Set()
 
-  return JSON.stringify(obj, (name, value)=> {
+  return JSON.stringify(obj, (name, value) => {
     if (isObject(value) && e.has(value)) {
       return Object.create(value)
     } else {
@@ -19,7 +19,7 @@ function jsonStringify (obj) {
 }
 
 function getType (obj) {
-  return !obj ? null : obj.constructor ? obj.constructor.name : typeof(obj)
+  return !obj ? null : obj.constructor ? obj.constructor.name : typeof (obj)
 }
 
 function pathToString (path) {

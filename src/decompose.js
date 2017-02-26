@@ -1,6 +1,6 @@
 const memUniqueIdFromEntity = global.decomposeGlobalUniqueID !== 'off'
   ? global.memUniqueIdFromEntity ? global.memUniqueIdFromEntity : (global.memUniqueIdFromEntity = {n: 0, collection: new Set()})
-  : ({n: 0, collection: new Map()})
+  : ({n: 0, collection: new Map(),collectionkey: new Map()})
 
 const uniqueIdFromEntity = (obj) => {
   if (!isObject(obj)) {
@@ -11,6 +11,7 @@ const uniqueIdFromEntity = (obj) => {
   if (!memUniqueIdFromEntity.collection.has(obj)) {
     memUniqueIdFromEntity.n += 1
     memUniqueIdFromEntity.collection.set(obj, memUniqueIdFromEntity.n)
+    memUniqueIdFromEntity.collectionkey.set(memUniqueIdFromEntity.n, obj)
   }
 
   return memUniqueIdFromEntity.collection.get(obj)
@@ -26,7 +27,7 @@ function getKeys (objArg) {
 
 /**
  * @param {*}        objArg  - Object to decompose.
- * @param {Function} fn      - ¯\_(ツ)_/¯ 
+ * @param {Function} fn      - ¯\_(ツ)_/¯
  * @param {Array}    prefix  - Array to prefix.
  * @param {Set}      history - history to ignore setter on collection.
  *
@@ -52,7 +53,6 @@ function decompose (objArg, fn, prefix = [], history = new Set()) {
   getKeys(objArg).forEach((index) => {
     const content = objArg[index]
     const _i = [].concat(prefix, index)
-
 
     const toPush = [_i, content]
 
