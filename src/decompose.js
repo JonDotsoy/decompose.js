@@ -1,6 +1,6 @@
 const memUniqueIdFromEntity = global.decomposeGlobalUniqueID !== 'off'
   ? global.memUniqueIdFromEntity ? global.memUniqueIdFromEntity : (global.memUniqueIdFromEntity = {n: 0, collection: new Set()})
-  : ({n: 0, collection: new Map(),collectionkey: new Map()})
+  : ({n: 0, collection: new Map(), collectionkey: new Map()})
 
 const uniqueIdFromEntity = (obj) => {
   if (!isObject(obj)) {

@@ -308,6 +308,7 @@ describe('Module Decompose.js', function () {
 
         const c = ['true', new OObj()]
 
+        /*!*/
         c.push(c)
 
         const obj = {

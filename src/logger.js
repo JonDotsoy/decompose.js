@@ -1,16 +1,22 @@
 const toLower = require('lodash/toLower')
+const chalk = require('chalk')
 const toUpper = require('lodash/toUpper')
 const padEnd = require('lodash/padEnd')
 const max = require('lodash/max')
 const isSymbol = require('lodash/isSymbol')
 const {isObject} = require('./decompose')
 
+"[Circular]"
+"@@@@@@@@@@"
+
+const TAG_CIRCULAR = "[Circular]"
+
 function jsonStringify (obj) {
   const e = new Set()
 
   return JSON.stringify(obj, (name, value) => {
     if (isObject(value) && e.has(value)) {
-      return Object.create(value)
+      return TAG_CIRCULAR
     } else {
       e.add(value)
       return value
@@ -50,10 +56,11 @@ function loggerMD (decomposedObjArg) {
     prelines.push([
       pathToString(path),
       toUpper((uniqueId).toString(16)),
-      jsonStringify(content),
+      String(jsonStringify(content)),
       getType(content)
     ])
   })
+
 
   const strPath = 'path'
   const strUniqueId = 'Unique ID'
@@ -80,7 +87,9 @@ function loggerMD (decomposedObjArg) {
   lines.push(`| ${padEnd('', withPath, '-')} | ${padEnd('', withUniqueID, '-')} | ${padEnd('', withType, '-')} | ${padEnd('', withContent, '-')} |`)
 
   prelines.forEach(([path, uniqueId, content, type]) => {
-    lines.push(`| ${padEnd(path, withPath)} | ${padEnd(uniqueId, withUniqueID)} | ${padEnd(type, withType)} | ${padEnd(content, withContent)} |`)
+    const contentSyled = content.replace(new RegExp(`"${TAG_CIRCULAR.replace(/([^\w])/, '\\$1')}"`, 'ig'), chalk.green(TAG_CIRCULAR))
+
+    lines.push(`| ${padEnd(path, withPath)} | ${padEnd(uniqueId, withUniqueID)} | ${padEnd(type, withType)} | ${padEnd(contentSyled, withContent)} |`)
   })
 
   return lines.join('\n')
