@@ -35,7 +35,11 @@ function jsonStringify (obj, decomposedObjArg) {
     }
   })
 
-  return rtrn.replace(/\"\[\[\[SYMBOL\[(.+)\]\]\]\]\"/g, ' $1 ')
+  return rtrn
+    // To Symbols
+    .replace(/\"\[\[\[SYMBOL\[(.+)\]\]\]\]\"/g, ' $1 ')
+    // To Circular
+    .replace(/\"(\[Circular [0-9|A-F]+\])\"/g, ' $1 ')
 }
 
 function getType (obj) {
@@ -68,17 +72,22 @@ function pathToString (path) {
   return `${rtrn}`
 }
 
-function loggerMD (decomposedObjArg) {
+function loggerMD (decomposedObjArg, maxlengcontent = 40) {
   const prelines = []
   const lines = []
 
   decomposedObjArg.forEach(([path, content, uniqueId]) => {
     const uid = toUpper((uniqueId).toString(16))
+    const preliteralString = String(jsonStringify(content, decomposedObjArg))
+
+    const literalString = preliteralString.length >= maxlengcontent
+      ? `${preliteralString.substring(0, maxlengcontent)}...`
+      : preliteralString
 
     prelines.push([
       pathToString(path),
       uid,
-      String(jsonStringify(content, decomposedObjArg)),
+      literalString,
       getType(content)
     ])
   })
@@ -109,7 +118,7 @@ function loggerMD (decomposedObjArg) {
   lines.push(`| ${padEnd('', withPath, '-')} | ${padEnd('', withUniqueID, '-')} | ${padEnd('', withType, '-')} | ${padEnd('', withContent, '-')} |`)
 
   prelines.forEach(([path, uniqueId, content, type]) => {
-    const contentSyled = content.replace(/\"(\[Circular [0-9|A-F]+\])\"/g, (' $1 '))
+    const contentSyled = content
 
     lines.push(`| ${padEnd(path, withPath)} | ${padEnd(uniqueId, withUniqueID)} | ${padEnd(type, withType)} | ${padEnd(contentSyled, withContent)} |`)
   })
