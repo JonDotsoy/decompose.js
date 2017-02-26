@@ -109,7 +109,7 @@ function loggerMD (decomposedObjArg) {
   lines.push(`| ${padEnd('', withPath, '-')} | ${padEnd('', withUniqueID, '-')} | ${padEnd('', withType, '-')} | ${padEnd('', withContent, '-')} |`)
 
   prelines.forEach(([path, uniqueId, content, type]) => {
-    const contentSyled = content.replace(/\"(\[Circular [0-9|A-F]+\])\"/g, chalk.green(' $1 '))
+    const contentSyled = content.replace(/\"(\[Circular [0-9|A-F]+\])\"/g, (' $1 '))
 
     lines.push(`| ${padEnd(path, withPath)} | ${padEnd(uniqueId, withUniqueID)} | ${padEnd(type, withType)} | ${padEnd(contentSyled, withContent)} |`)
   })
