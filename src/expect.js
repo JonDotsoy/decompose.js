@@ -1,6 +1,8 @@
 const isSymbol = require('lodash/isSymbol')
 const uniqueId = require('lodash/uniqueId')
 const {decompose} = require('./decompose')
+const {logger} = require('./logger')
+const expectJs = require('expect.js')
 
 const listToSymbols = new Map()
 

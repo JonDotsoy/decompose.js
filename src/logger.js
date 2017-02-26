@@ -10,9 +10,8 @@ const max = require('lodash/max')
 const isSymbol = require('lodash/isSymbol')
 const {isObject} = require('./decompose')
 
-const toTagCircular = (e)=>e?`[Circular ${e}]`:"[Circular]"
+const toTagCircular = (e) => e ? `[Circular ${e}]` : '[Circular]'
 const DEFAULT_TAG_CIRCULAR = toTagCircular()
-
 
 function jsonStringify (obj, decomposedObjArg) {
   const e = new Set()
@@ -20,16 +19,15 @@ function jsonStringify (obj, decomposedObjArg) {
   if (isRegExp(obj)) return obj.toString()
 
   if (isSymbol(obj)) return obj.toString()
-  if (isNaN(obj)) return "NaN"
+  if (isNaN(obj)) return 'NaN'
   if (isFunction(obj)) return obj.toString()
 
   const rtrn = JSON.stringify(obj, (name, value) => {
-
     if (isRegExp(value)) return `[[[REGEXP[${value.toString()}]]]]`
     if (isSymbol(value)) return `[[[SYMBOL[${value.toString()}]]]]`
 
     if (isObject(value) && e.has(value)) {
-      const [,,uid] = decomposedObjArg.find(([,content]) => content===value)
+      const [,, uid] = decomposedObjArg.find(([, content]) => content === value)
       const uidStyled = toUpper((uid).toString(16))
 
       return toTagCircular(uidStyled)
@@ -50,32 +48,32 @@ function jsonStringify (obj, decomposedObjArg) {
 
 function getType (obj) {
   return isNull(obj)
-    ? "null"
+    ? 'null'
     : isObject(obj)
       ? obj.constructor
         ? obj.constructor.name
-        : typeof(obj)
-      : typeof(obj)
+        : typeof (obj)
+      : typeof (obj)
 }
 
 function pathToString (path) {
   const rtrn = path
-  // parse Symbols
-  .map((el) => {
-    if (isSymbol(el)) {
-      return `[${el.toString()}]`
-    } else {
-      const _el = el.toString()
-      if (/\./.test(_el)) {
-        return `[${_el}]`
+    // parse Symbols
+    .map((el) => {
+      if (isSymbol(el)) {
+        return `[${el.toString()}]`
       } else {
-        return `${_el}`
+        const _el = el.toString()
+        if (/\./.test(_el)) {
+          return `[${_el}]`
+        } else {
+          return `${_el}`
+        }
       }
-    }
-  })
-  .join('.')
+    })
+    .join('.')
 
-  return `${rtrn}`
+  return rtrn || '[]'
 }
 
 function loggerMD (decomposedObjArg, maxlengcontent = 40) {
@@ -98,8 +96,7 @@ function loggerMD (decomposedObjArg, maxlengcontent = 40) {
     ])
   })
 
-
-  const strPath = 'path'
+  const strPath = 'Path'
   const strUniqueId = 'Unique ID'
   const strContent = 'Content'
   const strType = 'Type'

@@ -300,7 +300,7 @@ describe('Module Decompose.js', function () {
         global.decomposeAssignUniqueID = 'off'
       })
 
-      it('markdown format #1', () => {
+      it.skip('markdown format #1', () => {
         const {decompose} = require('../src/decompose.js')
         const {logger} = require('../src/logger.js')
 
@@ -314,12 +314,14 @@ describe('Module Decompose.js', function () {
         const valNull = null
         const valRegExp = /./
         const valNaN = NaN
+        const valFn = (() => {})//.bind(global)
         const valSymbol = Symbol('s')
 
         const obj = {
           valRegExp,
           valNull,
           valNaN,
+          valFn,
           valSymbol,
           c,
           [Symbol('a')]: {
@@ -329,12 +331,10 @@ describe('Module Decompose.js', function () {
         }
 
         obj.i = obj
+        obj.u = Object
         obj[Symbol('b')] = 'OObj'
 
-        // console.time('Decompose global')
-        // decompose(global)
-        // console.timeEnd('Decompose global')
-        console.log(logger(decompose(obj)))
+        console.log( logger( decompose( obj ) ) )
       })
     })
   })
