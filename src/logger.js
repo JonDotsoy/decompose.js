@@ -1,6 +1,7 @@
 const toLower = require('lodash/toLower')
 const isFunction = require('lodash/isFunction')
 const isNull = require('lodash/isNull')
+const isRegExp = require('lodash/isRegExp')
 const isNaN = require('lodash/isNaN')
 const chalk = require('chalk')
 const toUpper = require('lodash/toUpper')
@@ -16,12 +17,15 @@ const DEFAULT_TAG_CIRCULAR = toTagCircular()
 function jsonStringify (obj, decomposedObjArg) {
   const e = new Set()
 
+  if (isRegExp(obj)) return obj.toString()
+
   if (isSymbol(obj)) return obj.toString()
   if (isNaN(obj)) return "NaN"
   if (isFunction(obj)) return obj.toString()
 
   const rtrn = JSON.stringify(obj, (name, value) => {
 
+    if (isRegExp(value)) return `[[[REGEXP[${value.toString()}]]]]`
     if (isSymbol(value)) return `[[[SYMBOL[${value.toString()}]]]]`
 
     if (isObject(value) && e.has(value)) {
@@ -36,10 +40,12 @@ function jsonStringify (obj, decomposedObjArg) {
   })
 
   return rtrn
+    // To RegExp
+    .replace(/\"\[\[\[REGEXP\[(.+?)\]\]\]\]\"/g, ' $1 ')
     // To Symbols
-    .replace(/\"\[\[\[SYMBOL\[(.+)\]\]\]\]\"/g, ' $1 ')
+    .replace(/\"\[\[\[SYMBOL\[(.+?)\]\]\]\]\"/g, ' $1 ')
     // To Circular
-    .replace(/\"(\[Circular [0-9|A-F]+\])\"/g, ' $1 ')
+    .replace(/\"(\[Circular [0-9|A-F]+?\])\"/g, ' $1 ')
 }
 
 function getType (obj) {

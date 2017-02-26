@@ -312,10 +312,12 @@ describe('Module Decompose.js', function () {
         c.push(c)
 
         const valNull = null
+        const valRegExp = /./
         const valNaN = NaN
         const valSymbol = Symbol('s')
 
         const obj = {
+          valRegExp,
           valNull,
           valNaN,
           valSymbol,
