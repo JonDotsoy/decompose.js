@@ -1,5 +1,7 @@
 const toLower = require('lodash/toLower')
 const isFunction = require('lodash/isFunction')
+const isNull = require('lodash/isNull')
+const isNaN = require('lodash/isNaN')
 const chalk = require('chalk')
 const toUpper = require('lodash/toUpper')
 const padEnd = require('lodash/padEnd')
@@ -14,9 +16,14 @@ const DEFAULT_TAG_CIRCULAR = toTagCircular()
 function jsonStringify (obj, decomposedObjArg) {
   const e = new Set()
 
+  if (isSymbol(obj)) return obj.toString()
+  if (isNaN(obj)) return "NaN"
   if (isFunction(obj)) return obj.toString()
 
   const rtrn = JSON.stringify(obj, (name, value) => {
+
+    if (isSymbol(value)) return `[[[SYMBOL[${value.toString()}]]]]`
+
     if (isObject(value) && e.has(value)) {
       const [,,uid] = decomposedObjArg.find(([,content]) => content===value)
       return toTagCircular(uid)
@@ -26,15 +33,17 @@ function jsonStringify (obj, decomposedObjArg) {
     }
   })
 
-  return rtrn
+  return rtrn.replace(/\"\[\[\[SYMBOL\[(.+)\]\]\]\]\"/g, ' $1 ')
 }
 
 function getType (obj) {
-  return isObject(obj)
-    ? obj.constructor
-      ? obj.constructor.name
+  return isNull(obj)
+    ? "null"
+    : isObject(obj)
+      ? obj.constructor
+        ? obj.constructor.name
+        : typeof(obj)
       : typeof(obj)
-    : typeof(obj)
 }
 
 function pathToString (path) {

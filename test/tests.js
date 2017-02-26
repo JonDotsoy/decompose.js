@@ -311,16 +311,18 @@ describe('Module Decompose.js', function () {
         /*!*/
         c.push(c)
 
+        const valNull = null
+        const valNaN = NaN
+        const valSymbol = Symbol('s')
+
         const obj = {
+          valNull,
+          valNaN,
+          valSymbol,
           c,
           [Symbol('a')]: {
-            c,
-            b: 3,
             n: /./,
             m: OObj
-          },
-          '1': {
-            c
           }
         }
 
