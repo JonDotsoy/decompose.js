@@ -5,6 +5,9 @@
 
 Decompose a object.
 
+> Why? In some cases it is necessary to inspect an object in depth and have the full value despite being able to modify it later. This project is well for inspecting an object to deepen and detarllar all its values.
+
+
 ## Inspiration
 Read the next publicactión on [stackoverflow][stackoverflow-questions-8318357].
 Would not it be great to know everything about an object? — This library allows it!!.
@@ -30,7 +33,10 @@ decompose( myObj ) // => Array
 // ]
 ```
 
+### Que hacer con decompose.js
+- Agregar soporte para manejo de objetos
+    - Comparar objetos
+
 
 [stackoverflow-questions-8318357]: http://stackoverflow.com/questions/8318357/javascript-pointer-reference-craziness-can-someone-explain-this "Javascript pointer/reference craziness. Can someone explain this?"
-
 

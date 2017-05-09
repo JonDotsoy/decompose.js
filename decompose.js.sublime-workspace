@@ -1,0 +1,2180 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"iP",
+				"iPhone"
+			],
+			[
+				"pending",
+				"pending"
+			],
+			[
+				"class",
+				"classnames"
+			],
+			[
+				"react-",
+				"react-dom"
+			],
+			[
+				"er",
+				"every\tevery { … }"
+			],
+			[
+				"if",
+				"ifel\tif … else"
+			],
+			[
+				"try",
+				"try\ttry … catch"
+			],
+			[
+				"Auth",
+				"AuthUtils"
+			],
+			[
+				"Sync",
+				"Sync3S"
+			],
+			[
+				"from",
+				"fromArg"
+			],
+			[
+				"API",
+				"APIGet"
+			],
+			[
+				"jon",
+				"jon-soy\tsign-jon-soy"
+			],
+			[
+				"Edit",
+				"EditCommitment"
+			],
+			[
+				"elem",
+				"element"
+			],
+			[
+				"collec",
+				"collectionToUpdate"
+			],
+			[
+				"histo",
+				"history"
+			],
+			[
+				"hist",
+				"history"
+			],
+			[
+				"pri",
+				"priority"
+			],
+			[
+				"elemne",
+				"elementsOfDay"
+			],
+			[
+				"element",
+				"element"
+			],
+			[
+				"elements",
+				"elementsOfDay"
+			],
+			[
+				"eleme",
+				"elementOnDay"
+			],
+			[
+				"preve",
+				"Previeus"
+			],
+			[
+				"fist",
+				"firstName"
+			],
+			[
+				"pendig",
+				"pendings"
+			],
+			[
+				"elemen",
+				"element"
+			],
+			[
+				"da",
+				"day"
+			],
+			[
+				"index",
+				"indexElement"
+			],
+			[
+				"acti",
+				"action"
+			],
+			[
+				"next",
+				"nextState"
+			],
+			[
+				"Ok",
+				"isOk"
+			],
+			[
+				"get",
+				"getState"
+			],
+			[
+				"fetch",
+				"fetching"
+			],
+			[
+				"create",
+				"createElement"
+			],
+			[
+				"crate",
+				"createExternalCommit"
+			],
+			[
+				"prito",
+				"priorities"
+			],
+			[
+				"Lib",
+				"Lib3S"
+			],
+			[
+				"prior",
+				"priority"
+			],
+			[
+				"pendi",
+				"pending"
+			],
+			[
+				"comel",
+				"completedDate"
+			],
+			[
+				"to",
+				"toShortDate3S"
+			],
+			[
+				"eql",
+				"equal"
+			],
+			[
+				"comple",
+				"completedDate"
+			],
+			[
+				"find",
+				"findIndex"
+			],
+			[
+				"come",
+				"completedDate"
+			],
+			[
+				"exp",
+				"expect"
+			],
+			[
+				"pendin",
+				"pending"
+			],
+			[
+				"expe",
+				"expect"
+			],
+			[
+				"act",
+				"action"
+			],
+			[
+				"nex",
+				"nextState"
+			],
+			[
+				"Pri",
+				"priorities"
+			],
+			[
+				"inita",
+				"initialState"
+			],
+			[
+				"pro",
+				"property"
+			],
+			[
+				"toda",
+				"getToday"
+			],
+			[
+				"diff",
+				"diffDay"
+			],
+			[
+				"REdu",
+				"ReducerAgenda"
+			],
+			[
+				"initial",
+				"initialState"
+			],
+			[
+				"load",
+				"loadHistory"
+			],
+			[
+				"asyn",
+				"asyncFetchingProcess"
+			],
+			[
+				"com",
+				"completed"
+			],
+			[
+				"asy",
+				"asyncProcess"
+			],
+			[
+				"state",
+				"startedFetchingHistory"
+			],
+			[
+				"reud",
+				"redux"
+			],
+			[
+				"firts",
+				"firstName"
+			],
+			[
+				"fisr",
+				"firstName"
+			],
+			[
+				"agenda",
+				"Agenda"
+			],
+			[
+				"name",
+				"nameChunkState"
+			],
+			[
+				"varia",
+				"variable"
+			],
+			[
+				"his",
+				"history"
+			],
+			[
+				"backgr",
+				"background-position: "
+			],
+			[
+				"back",
+				"background-size: "
+			],
+			[
+				"padd",
+				"padding-bottom: "
+			],
+			[
+				"handle",
+				"handleGeneratorHandleOnDay"
+			],
+			[
+				"handleOnUpdatePE",
+				"handleOnUpdatePendings"
+			],
+			[
+				"asker",
+				"Asker"
+			],
+			[
+				"pen",
+				"pending"
+			],
+			[
+				"pend",
+				"pendings"
+			],
+			[
+				"is",
+				"isFunction"
+			],
+			[
+				"bg",
+				"background-image: "
+			],
+			[
+				"alig",
+				"align-self: "
+			],
+			[
+				"my",
+				"MyNewTitle"
+			],
+			[
+				"MY",
+				"MyNewTitle"
+			],
+			[
+				"Reducer",
+				"ReducerPendingList"
+			],
+			[
+				"Redc",
+				"ReducerPendingList"
+			],
+			[
+				"Re",
+				"Render"
+			],
+			[
+				"REducer",
+				"ReducerPendingList"
+			],
+			[
+				"reducer",
+				"ReducerPendingList"
+			],
+			[
+				"Class",
+				"classNames"
+			],
+			[
+				"boder-s",
+				"border-spacing: "
+			],
+			[
+				"in",
+				"inputFirstName"
+			],
+			[
+				"border-b",
+				"border-bottom-color: "
+			],
+			[
+				"blo",
+				"block"
+			],
+			[
+				"bu",
+				"buildFile"
+			],
+			[
+				"dow",
+				"number_of_downloads_last_year"
+			],
+			[
+				"reg",
+				"regc"
+			],
+			[
+				"fir",
+				"firstName"
+			],
+			[
+				"hand",
+				"handleOnChangeLastName"
+			],
+			[
+				"las",
+				"handleOnChangeLastName"
+			],
+			[
+				"Inpt",
+				"InputPersonVisible"
+			],
+			[
+				"su",
+				"subscribe"
+			],
+			[
+				"stae",
+				"state"
+			],
+			[
+				"sta",
+				"stateControl"
+			],
+			[
+				"Create",
+				"CreatePriority"
+			],
+			[
+				"Chec",
+				"checkedIsCommit"
+			],
+			[
+				"bac",
+				"background-color: "
+			],
+			[
+				"flex",
+				"flex-direction: "
+			],
+			[
+				"font",
+				"font-family: "
+			],
+			[
+				"ref",
+				"refs"
+			],
+			[
+				"_",
+				"_con"
+			],
+			[
+				"Em",
+				"EventEmitter"
+			],
+			[
+				"loca",
+				"LocalDB"
+			],
+			[
+				"id",
+				"idTOProject"
+			],
+			[
+				"max",
+				"max-height: "
+			],
+			[
+				"min",
+				"min-height: "
+			],
+			[
+				"box",
+				"box-sizing: "
+			],
+			[
+				"css",
+				"CSS"
+			],
+			[
+				"Agenda",
+				"AgendaVisible"
+			],
+			[
+				"ster",
+				"storeMemory"
+			],
+			[
+				"Find",
+				"findInAll"
+			],
+			[
+				"object",
+				"ObjectToInspect"
+			],
+			[
+				"no",
+				"noUtil2"
+			],
+			[
+				"isnpect",
+				"inspector"
+			],
+			[
+				"src",
+				"srcValue"
+			],
+			[
+				"chil",
+				"child1"
+			],
+			[
+				"obj",
+				"objSrc"
+			],
+			[
+				"oj",
+				"objValue"
+			],
+			[
+				"Obj",
+				"objSrc"
+			],
+			[
+				"ob",
+				"objSrc"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"List",
+					""
+				],
+				[
+					"List2",
+					""
+				],
+				[
+					"Packages/User/node.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/node.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"List",
+					""
+				],
+				[
+					"Packages/User/node.sublime-build",
+					""
+				]
+			],
+			[
+				"List",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 35.0,
+		"last_filter": "check",
+		"selected_items":
+		[
+			[
+				"check",
+				"Git: Checkout Current File"
+			],
+			[
+				"reset c",
+				"Git: Reset (unstage) Current File"
+			],
+			[
+				"diff curre",
+				"Git: Diff Current File"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"add",
+				"Git: Add All"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"new bra",
+				"Git: New Branch"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"jvasc",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"spaces",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"markdown G",
+				"Set Syntax: Markdown GFM"
+			],
+			[
+				"markd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"javascri",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"flow",
+				"File: New View into File"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"issues",
+				"GitHub Issue: Show Open Issues"
+			],
+			[
+				"blame",
+				"Git: Blame"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"change",
+				"Git: Change Branch"
+			],
+			[
+				"bla",
+				"Git: Blame"
+			],
+			[
+				"change bra",
+				"Git: Change Branch"
+			],
+			[
+				"cahnge bran",
+				"Git: Change Branch"
+			],
+			[
+				"title",
+				"Convert Case: Title Case"
+			],
+			[
+				"checku",
+				"Git: Checkout Current File"
+			],
+			[
+				"puhs",
+				"Git: Push"
+			],
+			[
+				"checki",
+				"Git: Checkout Current File"
+			],
+			[
+				"stats",
+				"Git: Status"
+			],
+			[
+				"preview",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"disl",
+				"Table Editor: Disable 'keep_space_left' for current view"
+			],
+			[
+				"disalbe",
+				"Package Control: Disable Package"
+			],
+			[
+				"packagelist",
+				"Package Control: List Packages"
+			],
+			[
+				"lowe",
+				"Convert Case: Lower Case"
+			],
+			[
+				"commi",
+				"Git: Commit"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"gitadd",
+				"Git: Add All"
+			],
+			[
+				"diffc",
+				"Git: Diff Current File"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"push cu",
+				"Git: Push Current Branch"
+			],
+			[
+				"git stau",
+				"Git: Status"
+			],
+			[
+				"lal",
+				"Git: Log All"
+			],
+			[
+				"pus",
+				"Git: Push"
+			],
+			[
+				"com",
+				"Git: Commit"
+			],
+			[
+				"git statu",
+				"Git: Status"
+			],
+			[
+				"git ad",
+				"Git: Add All"
+			],
+			[
+				"ad",
+				"Git: Add All"
+			],
+			[
+				"amend",
+				"Git: Amend Commit"
+			],
+			[
+				"logall",
+				"Git: Log All"
+			],
+			[
+				"histo",
+				"Git: Commit history"
+			],
+			[
+				"comit",
+				"Git: Commit"
+			],
+			[
+				"stauts",
+				"Git: Status"
+			],
+			[
+				"puh",
+				"Git: Push"
+			],
+			[
+				"PUH",
+				"Git: Push"
+			],
+			[
+				"PUSH",
+				"Git: Push"
+			],
+			[
+				"COMM",
+				"Git: Commit"
+			],
+			[
+				"ADD",
+				"Git: Add All"
+			],
+			[
+				"psuh",
+				"Git: Push"
+			],
+			[
+				"merge",
+				"Git: Merge Branch"
+			],
+			[
+				"chab",
+				"Git: Change Branch"
+			],
+			[
+				"issu",
+				"GitHub Issue: Show Open Issues"
+			],
+			[
+				"log",
+				"Git: Log All"
+			],
+			[
+				"cpmm",
+				"Snippet: React: componentDidMount: fn() { ... }"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"comi",
+				"Git: Commit"
+			],
+			[
+				"comme",
+				"Toggle Comment"
+			],
+			[
+				"Add",
+				"Git: Add All"
+			],
+			[
+				"AMEND",
+				"Git: Amend Commit"
+			],
+			[
+				"blam",
+				"Git: Blame"
+			],
+			[
+				"cmm",
+				"Git: Commit"
+			],
+			[
+				"toggle ",
+				"View: Toggle Side Bar"
+			],
+			[
+				"toggle menu",
+				"View: Toggle Menu"
+			],
+			[
+				"toggle",
+				"View: Toggle Side Bar"
+			],
+			[
+				"gik",
+				"Git: Gitk"
+			],
+			[
+				"blae",
+				"Git: Blame"
+			],
+			[
+				"ush",
+				"Permute Lines: Shuffle"
+			],
+			[
+				"git a",
+				"Git: Add All"
+			],
+			[
+				"open iss",
+				"GitHub Issue: Show Open Issues"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"add ",
+				"Git: Add Current File"
+			],
+			[
+				"isues",
+				"GitHub Issue: Show Open Issues"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"shell",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"Push",
+				"Git: Push"
+			],
+			[
+				"push ",
+				"Git: Push"
+			],
+			[
+				"git bla",
+				"Git: Blame"
+			],
+			[
+				"git blam",
+				"Git: Blame"
+			],
+			[
+				"open",
+				"GitHub Issue: Show Open Issues"
+			],
+			[
+				"git bl",
+				"Git: Blame"
+			],
+			[
+				"issue",
+				"GitHub Issue: Show Open Issues"
+			],
+			[
+				"gitt add",
+				"Git: Quick Commit (repo, only already added files)"
+			],
+			[
+				"git staut",
+				"Git: Status"
+			],
+			[
+				"opne iss",
+				"GitHub Issue: Show Open Issues"
+			],
+			[
+				"iss",
+				"GitHub Issue: Show Open Issues"
+			],
+			[
+				"chekc",
+				"Git: Checkout Current File"
+			],
+			[
+				"creat eiss",
+				"GitHub Issue: Create Issue"
+			],
+			[
+				"git merge ",
+				"Git: Merge Branch"
+			],
+			[
+				"change ra",
+				"Git: Change Branch"
+			],
+			[
+				"git branch",
+				"Git: Change Branch"
+			],
+			[
+				"change ",
+				"Git: Change Branch"
+			],
+			[
+				"push cc",
+				"Git: Push Current Branch"
+			],
+			[
+				"newbra",
+				"Git: New Branch"
+			],
+			[
+				"chang",
+				"Git: Change Branch"
+			],
+			[
+				"psuhc",
+				"Git: Push Current Branch"
+			],
+			[
+				"new bran",
+				"Git: New Branch"
+			],
+			[
+				"creat i",
+				"GitHub Issue: Create Issue"
+			],
+			[
+				"cha ge ",
+				"Git: Change Branch"
+			],
+			[
+				"create iss",
+				"GitHub Issue: Create Issue"
+			],
+			[
+				"reset",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"current ",
+				"Git: Add Current File"
+			],
+			[
+				"push c",
+				"Git: Push Current Branch"
+			],
+			[
+				"pull cur",
+				"Git: Pull Current Branch"
+			],
+			[
+				"pull cr",
+				"Git: Pull Current Branch"
+			],
+			[
+				"change br",
+				"Git: Change Branch"
+			],
+			[
+				"pull ",
+				"Git: Pull"
+			],
+			[
+				"log a",
+				"Git: Log All"
+			],
+			[
+				"delte bra",
+				"Git: Delete Branch"
+			],
+			[
+				"log ",
+				"Git: Log All"
+			],
+			[
+				"delete ",
+				"Git: Delete Branch"
+			],
+			[
+				"stash",
+				"Git: Stash List"
+			],
+			[
+				"reset hard",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"change bran",
+				"Git: Change Branch"
+			],
+			[
+				"branch",
+				"Git: Pull Current Branch"
+			]
+		],
+		"width": 536.0
+	},
+	"console":
+	{
+		"height": 398.0,
+		"history":
+		[
+			"l",
+			"process",
+			"console",
+			"consolel",
+			"cls",
+			"1+1+2",
+			"1+1+1",
+			"\"asd\"",
+			"\"asd2\"",
+			"\"asd2",
+			"print \"a\"",
+			"print \"ada2\"",
+			"print ad",
+			"print",
+			"pc",
+			"ps",
+			"top",
+			"sllsls",
+			"cl",
+			"ps",
+			"ls",
+			"ad",
+			"ls",
+			"l",
+			".",
+			".claer()",
+			".clear",
+			"clear",
+			".clear",
+			"clear",
+			"cl",
+			"cls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/choni/Repositories/JonDotsoy/decompose.js/package.json",
+		"/C/Users/choni/bin/_.cmd",
+		"/C/Users/choni/Repositories/3s/equip/web/package.json",
+		"/C/Users/choni/Repositories/3s/equip/web/.env",
+		"/C/Users/choni/bin/n.cmd",
+		"/C/Users/choni/Documents/tmp.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Auth/components/LoginForm/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/CreatePriority/CreatePriorityContainer.js",
+		"/C/Users/choni/Downloads/357a5cf0342711e79a0b97c3db42d86b.outline.md",
+		"/C/Users/choni/Repositories/3s/equip/web/components/Workload/index.js",
+		"/C/Users/choni/Downloads/fa82b0c0342611e79f28d518e47e3843.notes.txt",
+		"/C/Users/choni/Downloads/1dd66c10342711e79a0b97c3db42d86b.notes.txt",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/EditTask/style.css",
+		"/C/Users/choni/Repositories/3s/equip/web/a.js",
+		"/C/Users/choni/Repositories/3s/equip/web/.gulp/scripts/typecheck.js",
+		"/C/Users/choni/Repositories/3s/equip/web/README.md",
+		"/C/Users/choni/Repositories/3s/equip/web/yarn.lock",
+		"/C/Users/choni/Repositories/3s/equip/web/.gitignore",
+		"/C/Users/choni/.ssh/config",
+		"/C/Users/choni/Repositories/3s/CI/servers/S1/docker-compose.yml",
+		"/C/Users/choni/Repositories/3s/equip/web/configs/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/actions/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/Agenda/AgendaVisible.js",
+		"/C/Users/choni/Repositories/3s/equip/web/resources/views/layout.pug",
+		"/C/Users/choni/Repositories/3s/equip/web/app.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/CreatePriority/CreatePriorityVisible.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/InputReminder/InputReminderVisible.js",
+		"/C/Users/choni/Repositories/3s/equip/web/stories/CreatePriority.js",
+		"/C/Users/choni/Repositories/3s/equip/web/components/Notifications/NotificationCard/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/components/Schedule/index.js",
+		"/C/Users/choni/Repositories/JonDotsoy/decompose.js/README.md",
+		"/C/Users/choni/Repositories/3s/equip/web/components/Dashboard/style.css",
+		"/C/Users/choni/Repositories/3s/equip/web/components/InputCalendar/InputCalendarVisible.js",
+		"/C/Users/choni/Repositories/3s/equip/web/.flowconfig",
+		"/C/Users/choni/Repositories/3s/equip/web/libs/Sync3S/Sync3S.js",
+		"/C/Users/choni/Repositories/3s/equip/web/libs/Sync3S/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Auth/actions/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/Agenda/__tests__/tests.js",
+		"/C/Users/choni/Repositories/3s/equip/web/libs/Lib3S/v1/helperCreates.js",
+		"/C/Users/choni/Repositories/3s/equip/web/libs/Lib3S/__tests__/helperCreates.js",
+		"/C/Users/choni/Repositories/3s/equip/web/components/History/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/bootstrap/browser.js",
+		"/C/Users/choni/Repositories/3s/equip/web/bootstrap/require.server.js",
+		"/C/Users/choni/Repositories/3s/equip/web/libs/Lib3S/v1/Lib3S.js",
+		"/C/Users/choni/Repositories/3s/equip/web/TODO",
+		"/C/Users/choni/Repositories/3s/equip/web/.gulp/util/handleError.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/__tests__/history.test.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/reducers/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/components/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/reducers/history.js",
+		"/C/Users/choni/bin/sd.cmd",
+		"/C/Users/choni/bin/y.cmd",
+		"/C/Users/choni/bin/s.cmd",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/reducers/../__tests__/history.test.js",
+		"/C/Users/choni/Repositories/3s/equip/web/COMMIT_EDITMSG.COMMIT_EDITMSG",
+		"/C/Users/choni/Repositories/3s/equip/web/.gulp/browserSync/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/.gulp/.gulpfile.babel.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/reducers/history.test.js",
+		"/C/Users/choni/Repositories/3s/equip/web/bootstrap/server.babel.js",
+		"/C/Users/choni/Repositories/3s/equip/web/bootstrap/server.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/__tests__/reducer/agendaReducer.react-test.js",
+		"/C/Users/choni/Google Drive/Proyectos/3s/web/features/Sync3S/Sync3S-middleware.md",
+		"/C/Users/choni/Repositories/3s/equip/web/components/utils/Timer.js",
+		"/C/Users/choni/Repositories/3s/equip/web/resources/lang/es-cl/moment.js",
+		"/C/Users/choni/Google Drive/hola.xml",
+		"/C/Users/choni/Google Drive/untitled.txt",
+		"/C/Users/choni/Google Drive/untitled (1).txt",
+		"/C/Users/choni/Repositories/3s/equip/web/Dockerfile.develop",
+		"/C/Users/choni/Repositories/3s/equip/web/.tests.jenkinsfile",
+		"/C/Users/choni/Repositories/3s/equip/web/.jenkinsfile",
+		"/C/Users/choni/.npmrc",
+		"/C/Users/choni/Repositories/3s/equip/web/.dockerignore",
+		"/C/Users/choni/Repositories/3s/CI/servers/S1/package.json",
+		"/C/Users/choni/Repositories/3s/equip/web/compose-service.develop.yml",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/CheckboxCommitment/CheckboxCommitmentVisible.js",
+		"/C/Users/choni/Repositories/3s/equip/web/libs/Sync3S/__tests__/Sync3S.test.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Auth/utils.js",
+		"/C/Users/choni/Repositories/JonDotsoy/vapi.js/package.json",
+		"/C/Users/choni/Repositories/3s/equip/web/components/History/-",
+		"/C/Users/choni/Repositories/JonDotsoy/vapi.js/lib/Model.js",
+		"/C/Users/choni/Repositories/JonDotsoy/vapi.js/e",
+		"/C/Users/choni/Repositories/3s/equip/web/.storybook/config.js",
+		"/C/Users/choni/Repositories/3s/equip/web/stories/EditTask.js",
+		"/C/Users/choni/Repositories/3s/equip/web/store.js",
+		"/C/Users/choni/Repositories/3s/equip/web/components/InputCalendar/index.css.json",
+		"/C/Users/choni/Repositories/3s/equip/web/components/Modal/DEPRECATED",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/InputTerm/__tests__/tests.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/reducers/priority.js",
+		"/C/Users/choni/Downloads/vanilla.js",
+		"/C/Users/choni/AppData/Roaming/Sublime Text 3/Packages/CSSOrder/Default (Windows).sublime-keymap",
+		"/C/Users/choni/Documents/equip_web.sublime-project",
+		"/C/Users/choni/Documents/tmp",
+		"/C/Users/choni/Documents/tmp.md",
+		"/C/Users/choni/Documents/tmp.cas1.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/testingInitialState.js",
+		"/C/Users/choni/Repositories/3s/CI/servers/P1/package.json",
+		"/C/Users/choni/Repositories/3s/CI/servers/P1/nginx/sites-available/dev.equip.cloud.conf",
+		"/C/Users/choni/Repositories/3s/CI/servers/P1/nginx/nginx.conf",
+		"/C/Users/choni/Repositories/3s/equip/web/DevTools.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/InputPendingListEditable/InputPendingListEditableVisible.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/actions/actionsTypes.js",
+		"/C/Users/choni/Repositories/3s/equip/web/libs/Lib3S/v1/helperCreate.js",
+		"/C/Users/choni/Repositories/3s/equip/web/libs/Lib3S/__tests__/helpersCreate.js",
+		"/C/Users/choni/Repositories/3s/equip/web/libs/Lib3S/__tests__/Lib3S.test.js",
+		"/C/Users/choni/Repositories/3s/equip/web/libs/Dates3S/Dates3S.js",
+		"/C/Users/choni/Repositories/3s/equip/web/node_modules/@alliende/equip_components/dist/AppBar/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/libs/ReactClickOutside/ReactClickOutside.js",
+		"/C/Users/choni/Repositories/3s/equip/web/components/InputCalendar/InputCalendar.js",
+		"/C/Users/choni/Repositories/3s/equip/web/www/css/style.css",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Auth/containers/Login/index.css",
+		"/C/Users/choni/Repositories/3s/equip/web/.gulp/styles/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Auth/components/LoginForm/index.css",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Auth/containers/Login/index.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/EditCommitment/EditCommitmentContainer.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/InputTerm/InputTerm.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/InputTerm/InputTermVisible.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/EditCommitment/EditCommitmentVisible.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/InputPendingListEditable/__tests__/tests.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/InputPendingListEditable/ReducerPendingList.js",
+		"/C/Users/choni/Repositories/3s/equip/web/domains/Agenda/components/InputPendingListEditable/InputPendingListEditable.js",
+		"/C/Users/choni/Repositories/3s/equip/web/components/Modal/ModalComponent.js",
+		"/C/Users/choni/AppData/Roaming/Sublime Text 3/Packages/Slack/README.md",
+		"/C/Users/choni/AppData/Roaming/Sublime Text 3/Packages/User/Slack.sublime-settings",
+		"/C/Users/choni/AppData/Roaming/Sublime Text 3/Packages/Slack/Slack.sublime-settings",
+		"/C/Users/choni/Repositories/JonDotsoy/jon.soy/servers/jon/web/docker-compose.yml",
+		"/C/Users/choni/Repositories/3s/equip/componenents/develop/package.json",
+		"/C/Users/choni/Repositories/3s/equip/web/node_modules/@alliende/equip_components/dist/PriorityCard/index.js"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 96.0,
+		"where_history":
+		[
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\node_modules",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\domains\\Agenda\\__tests__",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\domains\\Agenda\\reducers",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\domains",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\libs",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\domains",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\components",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\domains",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\domains",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\components",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\domains",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\domains\\Agenda\\components",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\domains\\Agenda\\components\\EditCommitment",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\domains",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\componenents\\develop\\src",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web",
+			"C:\\Users\\choni\\Repositories\\3s\\CI",
+			"C:\\Users\\choni\\Repositories\\3s\\equip\\web\\app"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"start",
+			"load",
+			"this.",
+			"B.prototype",
+			"}}",
+			"Function",
+			"onError",
+			"props.",
+			"*",
+			"\t",
+			",",
+			"npm run",
+			"dotenv",
+			"realLoadHistory",
+			"loadHistory",
+			"histor",
+			"ask",
+			"clickArrow",
+			"handleClickRight",
+			"[NPM]",
+			"[nodejs]",
+			"[node.js]",
+			"[node]",
+			"yarn",
+			"Yarn",
+			"[YARN]",
+			"ThreeBounce",
+			"EditTask",
+			"Modal",
+			"modal",
+			"Modal",
+			"modal",
+			"Modal",
+			"modal",
+			"Modal",
+			"isMobile",
+			"getDate",
+			"moment",
+			"FormElement",
+			" ",
+			"yarn",
+			"flow",
+			"envify",
+			"deepfreeze",
+			"expect.js",
+			"APIGet",
+			"  APIGet",
+			"APIPost",
+			"isResponseStatusAnError",
+			"fetchLogin",
+			"login",
+			"pendings",
+			"env",
+			"render",
+			"babel-polyfill",
+			"continueIf",
+			"follow",
+			"api",
+			"url",
+			"URL",
+			"url",
+			"URL",
+			"fetch",
+			"assertion",
+			"createAsker",
+			"follow",
+			"continueIf",
+			"follow",
+			"assertion",
+			"helperCreates",
+			"\\",
+			"continueIf",
+			"enforceErrorNoMatch",
+			"nameVariable",
+			"enforceErrorVariableRequired",
+			"assertionMatch",
+			"TODO",
+			"exepciones",
+			"notifications",
+			"notification",
+			"browserHistory",
+			"browser",
+			"\\",
+			"service",
+			"-test",
+			"agendaHisto",
+			"moment",
+			"dispatchesLoadHistory",
+			"apiGetHistory",
+			"apiGetHistoryShapeTryError",
+			"apiGetHistoryShapeWaitForInternet",
+			"loadHistory",
+			"Load history",
+			"history",
+			"Load history",
+			"InitialStateHistoryReducer",
+			"todo",
+			"TODO",
+			"evaluator",
+			"set ",
+			"set(",
+			"push",
+			"merge(",
+			"merge",
+			"set(",
+			"history",
+			"SET_AGENDA",
+			"console.error",
+			"isResponseStatusAnError",
+			"status",
+			"actions",
+			"action",
+			"domains\\Agenda\\actions\\index.js:321",
+			"require('./index.js')",
+			"require('.')",
+			"require('./history')",
+			"./history",
+			"..actions",
+			"history.js",
+			"require('./history.js')",
+			"TODO:",
+			"\\",
+			"TestRender",
+			"SET_AGE",
+			"set_durat",
+			"console.error",
+			"next",
+			"chai"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 281.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 277.0
+	},
+	"output.markdown":
+	{
+		"height": 130.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 278.0
+	},
+	"pinned_build_system": "",
+	"project": "decompose.js.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"createpriority",
+				"domains\\Agenda\\components\\CreatePriority\\CreatePriorityContainer.js"
+			],
+			[
+				"workload",
+				"components\\Workload\\index.js"
+			],
+			[
+				"loginform",
+				"domains\\Auth\\components\\LoginForm\\index.js"
+			],
+			[
+				"readm",
+				"README.md"
+			],
+			[
+				"gitig",
+				".gitignore"
+			],
+			[
+				"yarn",
+				"yarn.lock"
+			],
+			[
+				"read",
+				"README.md"
+			],
+			[
+				"notificationcard",
+				"components\\Notifications\\NotificationCard\\index.js"
+			],
+			[
+				"inputcalendarvisible",
+				"components\\InputCalendar\\InputCalendarVisible.js"
+			],
+			[
+				"domains/agenda/components/agenda/__tests__/tests.js",
+				"domains\\Agenda\\components\\Agenda\\__tests__\\tests.js"
+			],
+			[
+				"pakc",
+				"package.json"
+			],
+			[
+				"app",
+				"app.js"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"require",
+				"bootstrap\\require.server.js"
+			],
+			[
+				"libs/sync3s/sync3s.js",
+				"libs\\Sync3S\\Sync3S.js"
+			],
+			[
+				"libs/lib3s/__tests__/helpercreates.js",
+				"libs\\Lib3S\\__tests__\\helperCreates.js"
+			],
+			[
+				"libs/lib3s/v1/helpercreates.js",
+				"libs\\Lib3S\\v1\\helperCreates.js"
+			],
+			[
+				"push",
+				".gulp\\util\\handleError.js"
+			],
+			[
+				"todo",
+				"TODO"
+			],
+			[
+				"domains/agenda/reducers/index.js",
+				"domains\\Agenda\\reducers\\index.js"
+			],
+			[
+				"domains/agenda/index.js",
+				"domains\\Agenda\\index.js"
+			],
+			[
+				"sync",
+				"libs\\Sync3S\\Sync3S.js"
+			],
+			[
+				"components/index.js",
+				"components\\index.js"
+			],
+			[
+				"app.js",
+				"app.js"
+			],
+			[
+				"domains/agenda/components/agenda/agendavisible.js",
+				"domains\\Agenda\\components\\Agenda\\AgendaVisible.js"
+			],
+			[
+				"tood",
+				"TODO"
+			],
+			[
+				"actions",
+				"domains\\Agenda\\actions\\index.js"
+			],
+			[
+				"history",
+				"domains\\Agenda\\reducers\\history.js"
+			],
+			[
+				"domains/agenda/actions/index.js",
+				"domains\\Agenda\\actions\\index.js"
+			],
+			[
+				"agenda",
+				"domains\\Agenda\\components\\Agenda\\AgendaVisible.js"
+			],
+			[
+				"babe",
+				".gulp\\.gulpfile.babel.js"
+			],
+			[
+				"domains/agenda/__tests__/reducer/agendareducer.react-test.js",
+				"domains\\Agenda\\__tests__\\reducer\\agendaReducer.react-test.js"
+			],
+			[
+				"bootstrap/browser.js",
+				"bootstrap\\browser.js"
+			],
+			[
+				"bootstrap/server.js",
+				"bootstrap\\server.js"
+			],
+			[
+				"components/utils/timer.js",
+				"components\\utils\\Timer.js"
+			],
+			[
+				"package.json",
+				"package.json"
+			],
+			[
+				"resources/lang/es-cl/moment.js",
+				"resources\\lang\\es-cl\\moment.js"
+			],
+			[
+				"server.js",
+				"bootstrap\\server.js"
+			],
+			[
+				".je",
+				".jenkinsfile"
+			],
+			[
+				"git",
+				".gitignore"
+			],
+			[
+				".jenk",
+				".jenkinsfile"
+			],
+			[
+				"docker",
+				"Dockerfile.develop"
+			],
+			[
+				".jenkis",
+				".jenkinsfile"
+			],
+			[
+				"jenk",
+				".jenkinsfile"
+			],
+			[
+				"giti",
+				".gitignore"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"domains/agenda/components/inputterm/__tests__/tests.js",
+				"domains\\Agenda\\components\\InputTerm\\__tests__\\tests.js"
+			],
+			[
+				"helpercreates",
+				"libs\\Lib3S\\v1\\helperCreates.js"
+			],
+			[
+				"pakca",
+				"package.json"
+			],
+			[
+				"devtools",
+				"DevTools.js"
+			],
+			[
+				"store.js",
+				"store.js"
+			],
+			[
+				"",
+				"domains\\Agenda\\reducers\\index.js"
+			],
+			[
+				"domains/agenda/actions/actionstypes.js",
+				"domains\\Agenda\\actions\\actionsTypes.js"
+			],
+			[
+				"pcka",
+				"package.json"
+			],
+			[
+				"proi",
+				"domains\\Agenda\\reducers\\priority.js"
+			],
+			[
+				"input",
+				"components\\InputCalendar\\InputCalendar.js"
+			],
+			[
+				"create",
+				"domains\\Agenda\\components\\CreatePriority\\CreatePriorityContainer.js"
+			],
+			[
+				"reducerpendinglist",
+				"domains\\Agenda\\components\\InputPendingListEditable\\ReducerPendingList.js"
+			],
+			[
+				"createpriorityc",
+				"domains\\Agenda\\components\\CreatePriority\\CreatePriorityContainer.js"
+			],
+			[
+				"createpriorityvisible",
+				"domains\\Agenda\\components\\CreatePriority\\CreatePriorityVisible.js"
+			],
+			[
+				"inputpending.js",
+				"domains\\Agenda\\components\\InputPending\\InputPendingVisible.js"
+			],
+			[
+				"inputpendinglisteditablevisible",
+				"domains\\Agenda\\components\\InputPendingListEditable\\InputPendingListEditableVisible.js"
+			],
+			[
+				"styleindex",
+				".gulp\\styles\\index.js"
+			],
+			[
+				"styles/in",
+				".gulp\\styles\\index.js"
+			],
+			[
+				"check",
+				"domains\\Agenda\\components\\CheckboxCommitment\\CheckboxCommitmentVisible.js"
+			],
+			[
+				"reactclickoutside",
+				"libs\\ReactClickOutside\\ReactClickOutside.js"
+			],
+			[
+				"checkboxcommitment",
+				"domains\\Agenda\\components\\CheckboxCommitment\\CheckboxCommitmentVisible.js"
+			],
+			[
+				"inputca",
+				"components\\InputCalendar\\InputCalendar.js"
+			],
+			[
+				"lay",
+				"resources\\views\\layout.pug"
+			],
+			[
+				"bro",
+				".gulp\\scripts\\browser.js"
+			],
+			[
+				"styleinde",
+				".gulp\\styles\\index.js"
+			],
+			[
+				"createpr",
+				"domains\\Agenda\\components\\CreatePriority\\CreatePriority.js"
+			],
+			[
+				"inputcalendar",
+				"components\\InputCalendar\\InputCalendarVisible.js"
+			],
+			[
+				"inputremi",
+				"domains\\Agenda\\components\\InputReminder\\InputReminder.js"
+			],
+			[
+				"reducer",
+				"domains\\HelloWorld\\reducer.js"
+			],
+			[
+				"agendaindex",
+				"domains\\Agenda\\index.js"
+			],
+			[
+				"inputcae",
+				"components\\InputCalendar\\InputCalendarVisible.js"
+			],
+			[
+				"inpturemi",
+				"domains\\Agenda\\components\\InputReminder\\InputReminder.js"
+			],
+			[
+				"inputcale",
+				"components\\InputCalendar\\InputCalendar.js"
+			],
+			[
+				"createpri",
+				"domains\\Agenda\\components\\CreatePriority\\CreatePriority.js"
+			],
+			[
+				"createbar",
+				"domains\\Agenda\\components\\CreateBar\\CreateBar.js"
+			],
+			[
+				"reminder",
+				"domains\\Agenda\\components\\InputReminder\\InputReminder.js"
+			],
+			[
+				"inputcaledar",
+				"components\\InputCalendar\\InputCalendar.js"
+			],
+			[
+				"styles",
+				".gulp\\styles\\index.js"
+			],
+			[
+				"reactcli",
+				"libs\\ReactClickOutside\\ReactClickOutside.js"
+			],
+			[
+				"inputremin",
+				"components\\InputReminder\\InputReminder.js"
+			],
+			[
+				"crate",
+				"domains\\Agenda\\components\\CreatePriority\\CreatePriority.js"
+			],
+			[
+				"tests",
+				"test\\components.js"
+			],
+			[
+				"inputselect",
+				"components\\InputHourSelect\\InputHourSelect.js"
+			],
+			[
+				"scripts/files",
+				"web\\.gulp\\scripts\\files.js"
+			],
+			[
+				"browser.js",
+				"web\\.gulp\\scripts\\browser.js"
+			],
+			[
+				"inputcand",
+				"webold\\resources\\styles\\components\\_InputCalendar.css"
+			],
+			[
+				"agendacss",
+				"web\\domains\\Agenda\\style.css"
+			],
+			[
+				"inputcaneda",
+				"webold\\app\\components\\InputCalendar.js"
+			],
+			[
+				"selectmagiccomponent",
+				"webold\\app\\components\\SelectMagicComponent.js"
+			],
+			[
+				"moment",
+				"web\\resources\\lang\\es-cl\\moment.js"
+			],
+			[
+				"es-",
+				"webold\\resources\\lang\\es-cl\\moment.js"
+			],
+			[
+				"timer",
+				"webold\\app\\services\\Timer.js"
+			],
+			[
+				"browserindex",
+				"web\\.gulp\\browserSync\\index.js"
+			],
+			[
+				"inputreminder",
+				"webold\\app\\components\\InputReminder.js"
+			],
+			[
+				".css",
+				"resources\\styles\\style.css"
+			],
+			[
+				"style",
+				".gulp\\styles\\index.js"
+			],
+			[
+				"gulp",
+				".gulp\\Gulpfile.babel.js"
+			],
+			[
+				"style/in",
+				".gulp\\styles\\index.js"
+			],
+			[
+				"style.css",
+				"www\\css\\style.css"
+			],
+			[
+				"style/index",
+				".gulp\\styles\\index.js"
+			],
+			[
+				"server",
+				"bootstrap\\server.js"
+			],
+			[
+				"layo",
+				"resources\\views\\layout.pug"
+			],
+			[
+				"/createpriority/createpriority.",
+				"domains\\Agenda\\components\\CreatePriority\\CreatePriority.js"
+			],
+			[
+				"/components/inputmessage/index.js",
+				"domains\\HelloWorld\\components\\InputMessage\\index.js"
+			],
+			[
+				"createpriority/createpriority.js",
+				"domains\\Agenda\\components\\CreatePriority\\CreatePriority.js"
+			],
+			[
+				"panel",
+				"domains\\Agenda\\components\\PanelConfirmation\\PanelConfirmation.js"
+			],
+			[
+				"inputmessa",
+				"domains\\HelloWorld\\components\\InputMessage\\index.js"
+			],
+			[
+				"testse",
+				"test\\tests.js"
+			],
+			[
+				"domains/agenda/reducer.js",
+				"domains\\Agenda\\reducer.js"
+			],
+			[
+				"helloworindex",
+				"domains\\HelloWorld\\index.js"
+			],
+			[
+				"browser",
+				"bootstrap\\browser.js"
+			],
+			[
+				"test",
+				"domains\\HelloWorld\\test\\tests.js"
+			],
+			[
+				"actionindex",
+				"domains\\Agenda\\actions\\index.js"
+			],
+			[
+				"gulpfi",
+				".gulp\\Gulpfile.babel.js"
+			],
+			[
+				"layout",
+				"resources\\views\\layout.pug"
+			],
+			[
+				"work",
+				"bootstrap\\worker.js"
+			],
+			[
+				"index",
+				"domains\\Agenda\\index.js"
+			],
+			[
+				"worke",
+				"bootstrap\\worker.js"
+			],
+			[
+				"ack",
+				"package.json"
+			],
+			[
+				"docer",
+				"Dockerfile"
+			],
+			[
+				"browsers",
+				".gulp\\browserSync\\index.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "decompose",
+		"selected_items":
+		[
+			[
+				"decompose",
+				"C:\\Users\\choni\\Repositories\\JonDotsoy\\decompose.js.sublime-project"
+			],
+			[
+				"edit",
+				"C:\\Users\\choni\\Documents\\editor.sublime-project"
+			],
+			[
+				"edito",
+				"C:\\Users\\choni\\Documents\\editor.sublime-project"
+			],
+			[
+				"ber",
+				"C:\\Users\\choni\\Documents\\bert.sublime-project"
+			],
+			[
+				"editor",
+				"C:\\Users\\choni\\Documents\\editor.sublime-project"
+			],
+			[
+				"web",
+				"C:\\Users\\choni\\Documents\\equip_web.sublime-project"
+			],
+			[
+				"vapi",
+				"C:\\Users\\choni\\Repositories\\JonDotsoy\\vapi-transform.sublime-project"
+			],
+			[
+				"",
+				"C:\\Users\\choni\\Repositories\\JonDotsoy\\vapi.sublime-project"
+			],
+			[
+				"api",
+				"C:\\Users\\choni\\Repositories\\3s\\equip\\api.sublime-project"
+			],
+			[
+				"at",
+				"C:\\Users\\choni\\Repositories\\JonDotsoy\\ajenjo.sublime-project"
+			],
+			[
+				"ql",
+				"C:\\Users\\choni\\Repositories\\JonDotsoy\\TravelQL.js.sublime-project"
+			],
+			[
+				"equicom",
+				"C:\\Users\\choni\\Documents\\equip_component_develop.sublime-project"
+			],
+			[
+				"ci",
+				"C:\\Users\\choni\\Documents\\equip ci.sublime-project"
+			],
+			[
+				"bert",
+				"C:\\Users\\choni\\Documents\\bert.sublime-project"
+			],
+			[
+				"equip",
+				"C:\\Users\\choni\\Documents\\equip ci.sublime-project"
+			],
+			[
+				"componente",
+				"C:\\Users\\choni\\Documents\\equip_component_develop.sublime-project"
+			],
+			[
+				"bert-c",
+				"C:\\Users\\choni\\Documents\\bert.sublime-project"
+			],
+			[
+				"va",
+				"C:\\Users\\choni\\Repositories\\JonDotsoy\\vapi.sublime-project"
+			],
+			[
+				"wik",
+				"C:\\Users\\choni\\Documents\\wiki_equip.sublime-project"
+			],
+			[
+				"equip web",
+				"C:\\Users\\choni\\Documents\\equip_web.sublime-project"
+			],
+			[
+				"vap",
+				"C:\\Users\\choni\\Repositories\\JonDotsoy\\vapi.sublime-project"
+			],
+			[
+				"wiki",
+				"C:\\Users\\choni\\Documents\\wiki_equip.sublime-project"
+			],
+			[
+				"we",
+				"C:\\Users\\choni\\Documents\\wiki_equip.sublime-project"
+			],
+			[
+				"wiek",
+				"C:\\Users\\choni\\Documents\\wiki_equip.sublime-project"
+			],
+			[
+				"WIKI",
+				"C:\\Users\\choni\\Documents\\wiki_equip.sublime-project"
+			],
+			[
+				"come",
+				"C:\\Users\\choni\\Documents\\equip_component_develop.sublime-project"
+			],
+			[
+				"component",
+				"C:\\Users\\choni\\Documents\\equip_component_develop.sublime-project"
+			],
+			[
+				"component ",
+				"C:\\Users\\choni\\Documents\\equip_component_develop.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"#app"
+			]
+		],
+		"width": 859.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 229.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
