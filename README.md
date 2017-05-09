@@ -5,7 +5,7 @@
 
 Decompose a object.
 
-> Why? In some cases it is necessary to inspect an object in depth and have the full value despite being able to modify it later. This project is well for inspecting an object to deepen and detarllar all its values.
+> Why? In some cases it is necessary to inspect an object in depth and have the full value despite being able to modify it later. This project is well for inspecting an object to depth and detailing all its values.
 
 
 ## Inspiration
