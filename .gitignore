@@ -1,3 +1,8 @@
+### decompose.js ###
+*.js
+!src/*.js
+!test/*.js
+!Gulpfile.js
 
 # Created by https://www.gitignore.io/api/node,windows,linux,macos
 
@@ -23,7 +28,6 @@
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
@@ -127,9 +131,3 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/node,windows,linux,macos
-
-*.js 
-!src/*.js
-!test/*.js
-!Gulpfile.js
-
