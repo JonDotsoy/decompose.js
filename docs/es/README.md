@@ -7,6 +7,7 @@ Esta es una herramienta que descomponer un objeto de JavaScript.
 **Contenido:**
 
 - [Compositor][]
+- [decompose()][]
 
 
 [Compositor]: #compositor
@@ -42,7 +43,8 @@ Composition {
 }
 ```
 
-
+[decompose()]: #function-decompose--
+## function decompose () {}
 
 [Object.prototype.constructor]: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/constructor
 
