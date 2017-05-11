@@ -10,8 +10,8 @@ Esta es una herramienta que descomponer un objeto de JavaScript.
 - [decompose()][]
 
 
-[composición]: #compositor
-[Compositor]: #compositor
+[composición]: #compositor-
+[Compositor]: #compositor.
 ## Compositor 🎼
 Este objeto es una representación de una estructura de un objeto, **manteniendo el puntero de la memoria** original.
 
