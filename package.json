@@ -8,7 +8,7 @@
     "tnode6": "docker build -f .tnode6.docker .",
     "tnode7": "docker build -f .tnode7.docker .",
     "build": "gulp build",
-    "test": "mocha"
+    "test": "mocha -r babel-register"
   },
   "directories": {
     "doc": "docs",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "babel-preset-env": "^1.4.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "chai": "^3.5.0",
@@ -49,6 +50,7 @@
           }
         }
       ],
+      "flow",
       "stage-2"
     ]
   }
