@@ -4,6 +4,12 @@ Esta es una herramienta que descomponer un objeto de JavaScript.
 
 > Este documento tiene como objetivo el explicar le funcionamiento del proyecto, funcionando como una guía de casos y ejemplos en donde ademas son usados para el desarrollo del mismo.
 
+**Contenido:**
+
+- [Compositor][]
+
+
+[Compositor]: #compositor
 ## Compositor 🎼
 Este objeto es una representación de una estructura de un objeto, **manteniendo el puntero de la memoria** original.
 
