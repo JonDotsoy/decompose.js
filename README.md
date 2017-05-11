@@ -1,3 +1,7 @@
+> # :warning: this branch is on develop.
+
+---
+
 # decompose.js 🎼
 
 [![Build Status](https://travis-ci.org/JonDotsoy/decompose.js.svg?branch=master)](https://travis-ci.org/JonDotsoy/decompose.js)
