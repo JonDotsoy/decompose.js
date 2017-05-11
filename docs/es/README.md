@@ -15,7 +15,7 @@ Esta es una herramienta que descomponer un objeto de JavaScript.
 ## Compositor 🎼
 Este objeto es una representación de una estructura de un objeto, **manteniendo el puntero de la memoria** original.
 
-Ej.
+Ejemplo.
 
 ```javascript
 Composition {
@@ -48,6 +48,20 @@ Composition {
 ## function decompose () {}
 Esta es una función que nos ayuda a crear una [composición][] de un objeto. 
 
+Ejemplo.
+
+```javascript
+decompose([1, 3, 6]) // =>
+Composition {
+    reference: function Array () {...},
+    value: [ 1, 3, 6 ],
+    children: {
+        "0": Composition {reference: function Number () {...}, value: 1}
+        "1": Composition {reference: function Number () {...}, value: 3}
+        "2": Composition {reference: function Number () {...}, value: 6}
+    }
+}
+```
 
 [Object.prototype.constructor]: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/constructor
 
