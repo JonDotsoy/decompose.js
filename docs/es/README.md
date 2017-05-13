@@ -6,9 +6,28 @@ Esta es una herramienta que descomponer un objeto de JavaScript.
 
 **Contenido:**
 
-- [composición][]
 - [decompose()][]
+- [composición][]
 
+[decompose()]: #function-decompose--
+## function decompose () {}
+Esta es una función que nos ayuda a crear una [composición][] de un objeto. 
+
+Ejemplo.
+
+```javascript
+decompose([1, 3, 6]) // =>
+Composition {
+    name: null,
+    reference: function Array () {...},
+    value: [ 1, 3, 6 ],
+    children: {
+        "0": Composition {name: "0", reference: function Number () {...}, value: 1}
+        "1": Composition {name: "1", reference: function Number () {...}, value: 3}
+        "2": Composition {name: "2", reference: function Number () {...}, value: 6}
+    }
+}
+```
 
 [composición]: #compositor-
 [Compositor]: #compositor-
@@ -19,6 +38,7 @@ Ejemplo.
 
 ```javascript
 Composition {
+    name: ...,
     reference: function Object() {...},
     value: ...,
     children: {
@@ -34,34 +54,18 @@ Otro ejemplo.
 ```javascript
 // From: [1, 3, 6]
 Composition {
+    name: null,
     reference: function Array () {...},
     value: [ 1, 3, 6 ],
     children: {
-        "0": Composition {reference: function Number () {...}, value: 1}
-        "1": Composition {reference: function Number () {...}, value: 3}
-        "2": Composition {reference: function Number () {...}, value: 6}
+        "0": Composition {name: "0", reference: function Number () {...}, value: 1}
+        "1": Composition {name: "1", reference: function Number () {...}, value: 3}
+        "2": Composition {name: "2", reference: function Number () {...}, value: 6}
     }
 }
 ```
 
-[decompose()]: #function-decompose--
-## function decompose () {}
-Esta es una función que nos ayuda a crear una [composición][] de un objeto. 
 
-Ejemplo.
-
-```javascript
-decompose([1, 3, 6]) // =>
-Composition {
-    reference: function Array () {...},
-    value: [ 1, 3, 6 ],
-    children: {
-        "0": Composition {reference: function Number () {...}, value: 1}
-        "1": Composition {reference: function Number () {...}, value: 3}
-        "2": Composition {reference: function Number () {...}, value: 6}
-    }
-}
-```
 
 [Object.prototype.constructor]: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/constructor
 

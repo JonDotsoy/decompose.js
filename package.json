@@ -4,9 +4,6 @@
   "version": "1.0.5",
   "main": "decompose.js",
   "scripts": {
-    "tnode5": "docker build -f .tnode5.docker .",
-    "tnode6": "docker build -f .tnode6.docker .",
-    "tnode7": "docker build -f .tnode7.docker .",
     "build": "gulp build",
     "test": "mocha -r babel-register"
   },
