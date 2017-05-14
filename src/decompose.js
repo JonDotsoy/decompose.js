@@ -8,12 +8,13 @@
 /**
  * Este función lee un elemento y la descompone para retornar una composición del mismo.
  *
- * @param {*}       Object - Valor para descomponer
+ * @param {*}       value  - Valor para descomponer
  * @param {object}  [opts] - alguna propiedades
  * @param {boolean} [opts.isOk=false] - is ok.
  * @return {Composition} Retorna la composición del elemento.
  * @example
  * decompose(3) // => Composition { reference: function Number() {...}, value: 3 }
  */
-export default function decompose () {
+export default function decompose (value, opts = {}) {
+  
 }

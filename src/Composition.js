@@ -1,5 +1,5 @@
 /**
- * Contiene la clase `Composition`, usado para reprecentar una composición de un elemento.
+ * Contiene la clase `Composition`, usado para representar una composición de un elemento.
  *
  * @module decompose.js/Composition
  * @example
@@ -35,8 +35,8 @@ export default class Composition {
   valueOf() {}
 
   /**
-   * Recorre todos los elementos del arbol.
-   * @param {loadCallback} load - Tras una iteración usara la funcion load para ver el elemento
+   * Recorre todos los elementos del árbol.
+   * @param {loaderCallback} load - Tras una iteración usara la función load para ver el elemento
    *                                recorrido.
    * @example
    * const composition = decompose({a: {b: 1, c: 3}})
@@ -52,10 +52,10 @@ export default class Composition {
    * // b ['a', 'b'] => 1
    * // c ['a', 'c'] => 1
    */
-  tree () {}
+  tree (loaderCallback: Function) {}
 
   /**
-   * > Porque? necestio una forma de recontruir el valor, de tal forma que me permita tener una
+   * > Porque? necesito una forma de reconstruir el valor, de tal forma que me permita tener una
    * copia del elemento.
    * @return {any} Elemento copiado, usando como referencia el elemento padre.
    * @example
@@ -81,11 +81,11 @@ export default class Composition {
   close () {}
 
   /**
-   * > Porque? necesitamos saver si algo ha cambiado.
+   * > Porque? necesitamos saber si algo ha cambiado.
    *
-   * > Ojo, que no solo evalua los elementos que an cambiado respecto de la composición los
+   * > Ojo, que no solo evaluá los elementos que han cambiado respecto de la composición los
    * elementos nuevos no los reporta.
-   * @param {any}        other             - Otro objeto el cual se quiere comparar.
+   * @param {any}      other             - Otro objeto el cual se quiere comparar.
    * @param {function} [reporter]        - Esta función nos ayudara a saber que a cambiado.
    * @param {boolean}  [stopFirst=false] - Si se detiene en cuanto encuentre un conflicto.
    * @example
@@ -103,11 +103,13 @@ export default class Composition {
    * // Out:
    * // b ["a", "b"] => 4
    */
-  diffOf () {}
+  diffOf (other: any, reporter: ?Function, stopFirst = false) {}
 }
 
 /**
- * @callback loadCallback
+ * Es usado para mostrar los elementos que recorre.
+ *
+ * @callback loaderCallback
  * @param {any}                  value - correspondera al valor real del objeto que esta
  *                                     recorreiendo.
  * @param {string|Symbol|null} name  - Corre al nombre del valor que esta recorriendo.
