@@ -8,13 +8,13 @@
     -   [tree](#tree)
     -   [close](#close)
     -   [diffOf](#diffof)
--   [loadCallback](#loadcallback)
+-   [loaderCallback](#loadercallback)
 -   [decompose.js](#decomposejs)
 -   [decompose](#decompose)
 
 ## decompose.js/Composition
 
-Contiene la clase `Composition`, usado para reprecentar una composición de un elemento.
+Contiene la clase `Composition`, usado para representar una composición de un elemento.
 
 **Examples**
 
@@ -59,11 +59,12 @@ composition.valueOf() // => {"a": 3}
 
 ### tree
 
-Recorre todos los elementos del arbol.
+Recorre todos los elementos del árbol.
 
 **Parameters**
 
--   `load` **[loadCallback](#loadcallback)** Tras una iteración usara la funcion load para ver el elemento
+-   `loaderCallback` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `load` **[loaderCallback](#loadercallback)** Tras una iteración usara la función load para ver el elemento
                                    recorrido.
 
 **Examples**
@@ -85,7 +86,7 @@ composition.tree((value, name, path, comp, root) => {
 
 ### close
 
-> Porque? necestio una forma de recontruir el valor, de tal forma que me permita tener una
+> Porque? necesito una forma de reconstruir el valor, de tal forma que me permita tener una
 > copia del elemento.
 
 **Examples**
@@ -115,9 +116,9 @@ Returns **any** Elemento copiado, usando como referencia el elemento padre.
 
 ### diffOf
 
-> Porque? necesitamos saver si algo ha cambiado.
+> Porque? necesitamos saber si algo ha cambiado.
 >
-> Ojo, que no solo evalua los elementos que an cambiado respecto de la composición los
+> Ojo, que no solo evaluá los elementos que han cambiado respecto de la composición los
 > elementos nuevos no los reporta.
 
 **Parameters**
@@ -144,7 +145,9 @@ composition.diffOf(original, reporter) // => false
 // b ["a", "b"] => 4
 ```
 
-## loadCallback
+## loaderCallback
+
+Es usado para mostrar los elementos que recorre.
 
 Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
@@ -160,6 +163,11 @@ Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 
 ## decompose.js
 
+**Parameters**
+
+-   `value`  
+-   `opts`   (optional, default `{}`)
+
 **Examples**
 
 ```javascript
@@ -173,8 +181,8 @@ Este función lee un elemento y la descompone para retornar una composición del
 
 **Parameters**
 
--   `Object` **any** Valor para descomponer
--   `opts` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)?** alguna propiedades
+-   `value` **any** Valor para descomponer
+-   `opts` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)?** alguna propiedades (optional, default `{}`)
     -   `opts.isOk` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** is ok. (optional, default `false`)
 
 **Examples**
