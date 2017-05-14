@@ -32,9 +32,6 @@ function eql (deObjArg, deCompareObjArg, fn) {
   })
 }
 
-/**
- * Inspiration by expect.js
- */
 function expect (objArg) {
   const value = decompose(objArg)
 

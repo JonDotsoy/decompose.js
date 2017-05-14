@@ -86,7 +86,7 @@ original.a.c === copia.a.c // => true
 _.isEqual(original, copia) // => true
 ```
 
-## Composition.prototype.diffOf(other[, reporter])
+## Composition.prototype.diffOf(other[, reporter[, stopFirst = false]])
 > Porque? necesitamos saver si algo ha cambiado.
 
 > Ojo, que no solo evalua los elementos que an cambiado respecto de la composición los elementos nuevos no los reporta.

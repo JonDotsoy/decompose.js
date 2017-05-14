@@ -1,9 +1,10 @@
 {
   "name": "decompose.js",
   "description": "Decompose a object.",
-  "version": "1.0.5",
-  "main": "decompose.js",
+  "version": "1.1.0",
+  "main": "decompose.js", 
   "scripts": {
+    "doc": "documentation build -f md src/**/*.js -o docs/API.md",
     "build": "ogulp -r babel-register build",
     "test": "mocha -r babel-register"
   },
@@ -25,7 +26,10 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
+    "bert.js": "0.0.21",
     "chai": "^3.5.0",
+    "documentation": "^4.0.0-rc.1",
+    "glob": "^7.1.1",
     "gulp-babel": "^6.1.2",
     "mocha": "^3.3.0",
     "ogulp": "^0.1.3"
