@@ -40,7 +40,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "doc": "documentation build -f md src/**/*.ts -o docs/API.md",
+    "doc": "typedoc",
     "build": "bun run build:cjs && bun run build:esm && bun run build:types",
     "build:cjs": "for f in decompose expect logger Composition decompose-old; do bun build ./src/$f.ts --outdir . --format cjs --target node; done",
     "build:esm": "for f in decompose expect logger Composition decompose-old; do bun build ./src/$f.ts --outdir . --format esm --target node --entry-naming $f.mjs; done",
@@ -64,7 +64,8 @@
   "devDependencies": {
     "@types/bun": "^1.4.2",
     "@types/node": "^20.0.0",
-    "documentation": "^4.0.0-rc.1",
+    "typedoc": "^0.28.20",
+    "typedoc-plugin-markdown": "^4.13.0",
     "typescript": "^5.4.0"
   },
   "repository": {

@@ -73,9 +73,10 @@ wherever else it appears in the decomposed list.
 
 ## API
 
-Full generated API reference is available in [`docs/API.md`](docs/API.md)
-([Spanish version](docs/es/API.md), with an accompanying
-[usage guide](docs/es/README.md)). Summary:
+Full generated API reference is available in [`docs/api/`](docs/api/README.md)
+(generated from the TypeScript source with [TypeDoc](https://typedoc.org/) —
+run `bun run doc` to regenerate it), with an accompanying
+[Spanish usage guide](docs/es/README.md). Summary:
 
 | Export | Description |
 | --- | --- |
@@ -107,6 +108,7 @@ The project is written in TypeScript and built with [Bun](https://bun.sh):
 bun install     # install dependencies
 bun run build   # compile src/*.ts to CJS + ESM + .d.ts at the package root
 bun test        # run the test suite (test/*.test.ts, using bun's built-in test runner)
+bun run doc     # regenerate docs/api/ from src/*.ts with TypeDoc
 ```
 
 `bun run build` compiles each entry point (`decompose`, `expect`, `logger`,

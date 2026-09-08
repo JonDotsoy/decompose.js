@@ -1,7 +1,7 @@
 /**
  * Contiene la clase `Composition`, usado para representar una composición de un elemento.
  *
- * @module decompose.js/Composition
+ * @module Composition
  * @example
  * import {Composition} from 'decompose.js'
  * import Composition from 'decompose.js/Composition'

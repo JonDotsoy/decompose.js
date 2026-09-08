@@ -6,8 +6,8 @@ import { logger } from './logger'
 // mirrors the existing (pre-migration) require so behavior is unchanged.
 const { decompose } = require('./decompose')
 
-type PathSegment = string | symbol
-type DecomposedEntry = [PathSegment[], any]
+export type PathSegment = string | symbol
+export type DecomposedEntry = [PathSegment[], any]
 
 const listToSymbols = new Map<symbol, string>()
 

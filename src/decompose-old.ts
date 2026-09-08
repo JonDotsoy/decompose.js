@@ -1,7 +1,7 @@
 declare const global: any
 
-type PathSegment = string | symbol
-type DecomposedEntry = [PathSegment[], any, number?]
+export type PathSegment = string | symbol
+export type DecomposedEntry = [PathSegment[], any, number?]
 
 const memUniqueIdFromEntity: any = global.decomposeGlobalUniqueID !== 'off'
   ? global.memUniqueIdFromEntity ? global.memUniqueIdFromEntity : (global.memUniqueIdFromEntity = { n: 0, collection: new Set() })

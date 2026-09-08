@@ -1,8 +1,12 @@
 # decompose.js
 
-A util to decompose a object on javascript.
+A util to decompose an object in JavaScript.
 
-See the documentation on:
+* [API reference](./api/README.md) — generated from the TypeScript source with
+  [TypeDoc](https://typedoc.org/) (`bun run doc`). Covers every module:
+  `decompose`, `Composition`, `expect`, `logger`, and `decompose-old`.
+* [Español](./es) — usage guide, in Spanish.
 
-* [Español](./es)
-
+> ⚠️ `decompose()` (`src/decompose.ts`) is currently an unimplemented stub on
+> this branch. See the root [README](../README.md#development-status) for
+> details.

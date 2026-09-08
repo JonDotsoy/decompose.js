@@ -12,7 +12,7 @@ import isSymbol from 'lodash/isSymbol'
 // mirrors the existing (pre-migration) require so behavior is unchanged.
 const { isObject } = require('./decompose')
 
-type DecomposedEntry = [(string | symbol)[], any, number?]
+export type DecomposedEntry = [(string | symbol)[], any, number?]
 
 const toTagCircular = (e?: string) => e ? `[Circular ${e}]` : '[Circular]'
 const DEFAULT_TAG_CIRCULAR = toTagCircular()
