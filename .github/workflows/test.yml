@@ -74,6 +74,50 @@ jobs:
         working-directory: ${{ runner.temp }}/decompose-npm-test
         run: node smoke-test.js
 
+      - name: Install TypeScript
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: npm i -D typescript
+
+      - name: Write type smoke test script
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: |
+          cat > smoke-test.ts <<'EOF'
+          // `decompose()` from `require()` rather than a typed `import`: the currently
+          // published npm package ships no .d.ts, so a typed import would fail to
+          // resolve here even though it works fine against this repo's own build
+          // (see test-from-pack). `declare function require` keeps this self-contained,
+          // with no need for @types/node in this throwaway project.
+          declare function require (id: string): any
+
+          const pkg: any = require('decompose.js')
+          const decompose: any = typeof pkg === 'function' ? pkg : (pkg.decompose || pkg.default)
+
+          if (typeof decompose !== 'function') {
+            throw new Error('decompose.js should export a decompose function (named, default, or as the module itself)')
+          }
+
+          decompose({ a: { b: 0 }, c: [1, 2] })
+          decompose(42)
+
+          console.log('decompose.js type smoke test passed')
+          EOF
+          cat > tsconfig.json <<'EOF'
+          {
+            "compilerOptions": {
+              "target": "ES2019",
+              "module": "Node16",
+              "esModuleInterop": true,
+              "skipLibCheck": true,
+              "noEmit": true
+            },
+            "files": ["smoke-test.ts"]
+          }
+          EOF
+
+      - name: Type-check the smoke test with tsc --noEmit
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: npx tsc --noEmit
+
   test-from-pack:
     name: Install from npm pack tarball
     runs-on: ubuntu-latest
@@ -141,3 +185,43 @@ jobs:
       - name: Run smoke test
         working-directory: ${{ runner.temp }}/decompose-pack-test
         run: node smoke-test.js
+
+      - name: Install TypeScript
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: npm i -D typescript
+
+      - name: Write type smoke test script
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: |
+          cat > smoke-test.ts <<'EOF'
+          import decompose, { isObject } from 'decompose.js'
+          import { logger } from 'decompose.js/logger'
+          import { expect } from 'decompose.js/expect'
+
+          const decomposed = decompose({ a: { b: 0 }, c: [1, 2] })
+          const [firstPath, firstValue]: [unknown[], unknown, number?] = decomposed[0]
+
+          if (typeof decompose !== 'function') throw new Error('decompose.js should export a callable default')
+          if (typeof isObject !== 'function') throw new Error('decompose.js should export isObject')
+
+          logger(decomposed)
+          expect({}).eq({})
+          EOF
+          cat > tsconfig.json <<'EOF'
+          {
+            "compilerOptions": {
+              "target": "ES2019",
+              "module": "ESNext",
+              "moduleResolution": "Bundler",
+              "esModuleInterop": true,
+              "strict": true,
+              "skipLibCheck": true,
+              "noEmit": true
+            },
+            "files": ["smoke-test.ts"]
+          }
+          EOF
+
+      - name: Type-check the smoke test against decompose.js's shipped .d.ts
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: npx tsc --noEmit
