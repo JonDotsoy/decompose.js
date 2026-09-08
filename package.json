@@ -2,11 +2,50 @@
   "name": "decompose.js",
   "description": "Decompose a object.",
   "version": "1.1.0",
-  "main": "decompose.js", 
+  "main": "decompose.js",
+  "module": "decompose.mjs",
+  "types": "decompose.d.ts",
+  "files": [
+    "*.js",
+    "*.mjs",
+    "*.d.ts",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./decompose.d.ts",
+      "import": "./decompose.mjs",
+      "require": "./decompose.js"
+    },
+    "./Composition": {
+      "types": "./Composition.d.ts",
+      "import": "./Composition.mjs",
+      "require": "./Composition.js"
+    },
+    "./expect": {
+      "types": "./expect.d.ts",
+      "import": "./expect.mjs",
+      "require": "./expect.js"
+    },
+    "./logger": {
+      "types": "./logger.d.ts",
+      "import": "./logger.mjs",
+      "require": "./logger.js"
+    },
+    "./decompose-old": {
+      "types": "./decompose-old.d.ts",
+      "import": "./decompose-old.mjs",
+      "require": "./decompose-old.js"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
-    "doc": "documentation build -f md src/**/*.js -o docs/API.md",
-    "build": "ogulp -r babel-register build",
-    "test": "mocha -r babel-register"
+    "doc": "documentation build -f md src/**/*.ts -o docs/API.md",
+    "build": "bun run build:cjs && bun run build:esm && bun run build:types",
+    "build:cjs": "for f in decompose expect logger Composition decompose-old; do bun build ./src/$f.ts --outdir . --format cjs --target node; done",
+    "build:esm": "for f in decompose expect logger Composition decompose-old; do bun build ./src/$f.ts --outdir . --format esm --target node --entry-naming $f.mjs; done",
+    "build:types": "tsc",
+    "test": "bun test"
   },
   "directories": {
     "doc": "docs",
@@ -19,20 +58,14 @@
   "license": "MIT",
   "dependencies": {
     "debug": "^2.6.6",
+    "lodash": "^4.17.21",
     "symbol": "^0.3.0"
   },
   "devDependencies": {
-    "babel-preset-env": "^1.4.0",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "^6.24.1",
-    "bert.js": "0.0.21",
-    "chai": "^3.5.0",
+    "@types/bun": "^1.4.2",
+    "@types/node": "^20.0.0",
     "documentation": "^4.0.0-rc.1",
-    "glob": "^7.1.1",
-    "gulp-babel": "^6.1.2",
-    "mocha": "^3.3.0",
-    "ogulp": "^0.1.3"
+    "typescript": "^5.4.0"
   },
   "repository": {
     "type": "git",
@@ -41,19 +74,5 @@
   "bugs": {
     "url": "https://github.com/JonDotsoy/decompose.js/issues"
   },
-  "homepage": "https://github.com/JonDotsoy/decompose.js#readme",
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ],
-      "flow",
-      "stage-2"
-    ]
-  }
+  "homepage": "https://github.com/JonDotsoy/decompose.js#readme"
 }

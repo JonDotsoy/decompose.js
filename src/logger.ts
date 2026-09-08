@@ -1,19 +1,23 @@
-const toLower = require('lodash/toLower')
-const isFunction = require('lodash/isFunction')
-const isNull = require('lodash/isNull')
-const isRegExp = require('lodash/isRegExp')
-const isNaN = require('lodash/isNaN')
-const chalk = require('chalk')
-const toUpper = require('lodash/toUpper')
-const padEnd = require('lodash/padEnd')
-const max = require('lodash/max')
-const isSymbol = require('lodash/isSymbol')
-const {isObject} = require('./decompose')
+import toLower from 'lodash/toLower'
+import isFunction from 'lodash/isFunction'
+import isNull from 'lodash/isNull'
+import isRegExp from 'lodash/isRegExp'
+import isNaN from 'lodash/isNaN'
+import toUpper from 'lodash/toUpper'
+import padEnd from 'lodash/padEnd'
+import max from 'lodash/max'
+import isSymbol from 'lodash/isSymbol'
 
-const toTagCircular = (e) => e ? `[Circular ${e}]` : '[Circular]'
+// `decompose.ts` does not (yet) export `isObject` as a named export; this
+// mirrors the existing (pre-migration) require so behavior is unchanged.
+const { isObject } = require('./decompose')
+
+type DecomposedEntry = [(string | symbol)[], any, number?]
+
+const toTagCircular = (e?: string) => e ? `[Circular ${e}]` : '[Circular]'
 const DEFAULT_TAG_CIRCULAR = toTagCircular()
 
-function jsonStringify (obj, decomposedObjArg) {
+function jsonStringify (obj: any, decomposedObjArg: DecomposedEntry[]): string {
   const e = new Set()
 
   if (isRegExp(obj)) return obj.toString()
@@ -27,8 +31,9 @@ function jsonStringify (obj, decomposedObjArg) {
     if (isSymbol(value)) return `[[[SYMBOL[${value.toString()}]]]]`
 
     if (isObject(value) && e.has(value)) {
-      const [,, uid] = decomposedObjArg.find(([, content]) => content === value)
-      const uidStyled = toUpper((uid).toString(16))
+      const found = decomposedObjArg.find(([, content]) => content === value)
+      const uid = found ? found[2] : undefined
+      const uidStyled = toUpper((uid as any).toString(16))
 
       return toTagCircular(uidStyled)
     } else {
@@ -46,7 +51,7 @@ function jsonStringify (obj, decomposedObjArg) {
     .replace(/\"(\[Circular [0-9|A-F]+?\])\"/g, ' $1 ')
 }
 
-function getType (obj) {
+function getType (obj: any): string {
   return isNull(obj)
     ? 'null'
     : isObject(obj)
@@ -56,7 +61,7 @@ function getType (obj) {
       : typeof (obj)
 }
 
-function pathToString (path) {
+function pathToString (path: (string | symbol)[]): string {
   const rtrn = path
     // parse Symbols
     .map((el) => {
@@ -76,12 +81,12 @@ function pathToString (path) {
   return rtrn || '[]'
 }
 
-function loggerMD (decomposedObjArg, maxlengcontent = 40) {
-  const prelines = []
-  const lines = []
+function loggerMD (decomposedObjArg: DecomposedEntry[], maxlengcontent: number = 40): string {
+  const prelines: [string, string, string, string][] = []
+  const lines: string[] = []
 
   decomposedObjArg.forEach(([path, content, uniqueId]) => {
-    const uid = toUpper((uniqueId).toString(16))
+    const uid = toUpper((uniqueId as any).toString(16))
     const preliteralString = String(jsonStringify(content, decomposedObjArg))
 
     const literalString = preliteralString.length >= maxlengcontent
@@ -101,19 +106,19 @@ function loggerMD (decomposedObjArg, maxlengcontent = 40) {
   const strContent = 'Content'
   const strType = 'Type'
 
-  const withPath = [0].concat([[strPath]], prelines).reduce((n, [path]) => {
+  const withPath: number = ([0] as any[]).concat([[strPath]], prelines).reduce((n: number, [path]: any) => {
     return max([n, path.length])
   })
 
-  const withUniqueID = [0].concat([[, strUniqueId]], prelines).reduce((n, [, uniqueId]) => {
+  const withUniqueID: number = ([0] as any[]).concat([[, strUniqueId]], prelines).reduce((n: number, [, uniqueId]: any) => {
     return max([n, String(uniqueId).length])
   })
 
-  const withContent = [0].concat([[,, strContent]], prelines).reduce((n, [,, content]) => {
+  const withContent: number = ([0] as any[]).concat([[, , strContent]], prelines).reduce((n: number, [, , content]: any) => {
     return max([n, String(content).length])
   })
 
-  const withType = [0].concat([[,,, strType]], prelines).reduce((n, [,,, type]) => {
+  const withType: number = ([0] as any[]).concat([[, , , strType]], prelines).reduce((n: number, [, , , type]: any) => {
     return max([n, String(type).length])
   })
 
@@ -129,17 +134,12 @@ function loggerMD (decomposedObjArg, maxlengcontent = 40) {
   return lines.join('\n')
 }
 
-function logger (decomposedObjArg, format = 'md') {
+export function logger (decomposedObjArg: DecomposedEntry[], format: string = 'md'): string {
   switch (toLower(format)) {
     case 'md': return loggerMD(decomposedObjArg)
     default: throw new TypeError('Format is not valid.')
   }
 }
 
-exports = module.exports = {
-  __esModule: true,
-  default: logger,
-  loggerMD,
-  logger
-}
-
+export { loggerMD }
+export default logger

@@ -66,21 +66,16 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
 
-      # The repository's own `npm run build` script relies on the long-unmaintained
-      # `ogulp` package, whose published tarball is missing its CLI entrypoint, so it
-      # cannot run in CI. This step reproduces the same babel transpile the Gulpfile's
-      # `build` task performs (src/decompose.js -> decompose.js) so `main` resolves.
-      - name: Build package entrypoint
-        run: |
-          node -e "
-          const babel = require('babel-core');
-          const fs = require('fs');
-          const result = babel.transformFileSync('src/decompose.js');
-          fs.writeFileSync('decompose.js', result.code);
-          "
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build package (bun build + tsc declarations)
+        run: bun run build
 
       - name: Pack package
         run: npm pack --pack-destination "${{ runner.temp }}"

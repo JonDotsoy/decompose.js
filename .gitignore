@@ -1,8 +1,8 @@
 ### decompose.js ###
+# Compiled build output (see `bun run build`)
 *.js
-!src/*.js
-!test/*.js
-!Gulpfile.js
+*.mjs
+*.d.ts
 
 # Created by https://www.gitignore.io/api/node,windows,linux,macos
 

@@ -1,49 +1,56 @@
-const isSymbol = require('lodash/isSymbol')
-const uniqueId = require('lodash/uniqueId')
-const {decompose} = require('./decompose')
-const {logger} = require('./logger')
-const expectJs = require('expect.js')
+import isSymbol from 'lodash/isSymbol'
+import uniqueId from 'lodash/uniqueId'
+import { logger } from './logger'
 
-const listToSymbols = new Map()
+// `decompose.ts` does not (yet) export `decompose` as a named export; this
+// mirrors the existing (pre-migration) require so behavior is unchanged.
+const { decompose } = require('./decompose')
 
-function normalizePath (pathArr) {
+type PathSegment = string | symbol
+type DecomposedEntry = [PathSegment[], any]
+
+const listToSymbols = new Map<symbol, string>()
+
+function normalizePath (pathArr: PathSegment[]): string {
   return pathArr.map(e => {
     if (isSymbol(e)) {
-      if (!listToSymbols.has(e)) listToSymbols.set(e, `@@SYMBOL(${uniqueId()})`)
-      return listToSymbols.get(e)
+      const sym = e as symbol
+      if (!listToSymbols.has(sym)) listToSymbols.set(sym, `@@SYMBOL(${uniqueId()})`)
+      return listToSymbols.get(sym)
     } else {
       return `[${e.toString()}]`
     }
   }).join('.')
 }
 
-function eql (deObjArg, deCompareObjArg, fn) {
+export function eql (deObjArg: DecomposedEntry[], deCompareObjArg: DecomposedEntry[]): boolean {
   if (deObjArg.length !== deCompareObjArg.length) return false
 
-  return [true].concat(deObjArg).reduce((e, [path, value]) => {
+  return ([true] as any[]).concat(deObjArg).reduce((e: any, [path, value]: any) => {
     if (e === false) return false
     const normPath = normalizePath(path)
 
-    const [, compareValue] = deCompareObjArg.find(([proposalComporePath, proposalComporeValue]) => {
+    const found = deCompareObjArg.find(([proposalComporePath]) => {
       return normPath === normalizePath(proposalComporePath)
     })
+    const compareValue = found ? found[1] : undefined
 
     return compareValue === value
   })
 }
 
-function expect (objArg) {
+export function expect (objArg: any) {
   const value = decompose(objArg)
 
-  const eq = (compare) => eql(value, decompose(compare))
+  const eq = (compare: any) => eql(value, decompose(compare))
 
-  const eqThrow = (compare) => {
+  const eqThrow = (compare: any) => {
     if (!eq(compare)) {
       throw new Error(`The value (${JSON.stringify(objArg)}) is not equals to compare (${JSON.stringify(compare)}).`)
     }
   }
 
-  const notEqThrow = (compare) => {
+  const notEqThrow = (compare: any) => {
     if (eq(compare)) {
       throw new Error(`The value (${value}) is equals to compare (${compare}).`)
     }
@@ -83,10 +90,4 @@ function expect (objArg) {
   return semanticEq
 }
 
-exports = module.exports = {
-  __esModule: true,
-  default: expect,
-  expect,
-  eql
-}
-
+export default expect
