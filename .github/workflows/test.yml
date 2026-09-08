@@ -1,0 +1,128 @@
+name: Test
+
+on:
+  pull_request:
+
+jobs:
+  test-from-npm:
+    name: Install from npm registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Create temp working directory
+        run: mkdir -p "${{ runner.temp }}/decompose-npm-test"
+
+      - name: Install decompose.js from npm
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: |
+          npm init -y
+          npm i decompose.js
+
+      - name: Write smoke test script
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: |
+          cat > smoke-test.js <<'EOF'
+          const assert = require('assert')
+
+          const pkg = require('decompose.js')
+          const decompose = typeof pkg === 'function' ? pkg : (pkg.decompose || pkg.default)
+
+          assert.ok(pkg, 'the package should be requirable and export something')
+          assert.strictEqual(
+            typeof decompose,
+            'function',
+            'decompose.js should export a decompose function (named, default, or as the module itself)'
+          )
+
+          assert.doesNotThrow(
+            () => decompose({ a: { b: 0 }, c: [1, 2] }),
+            'decompose() should not throw when called with a plain object'
+          )
+          assert.doesNotThrow(
+            () => decompose(42),
+            'decompose() should not throw when called with a primitive value'
+          )
+
+          console.log('decompose.js smoke test passed')
+          EOF
+
+      - name: Run smoke test
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: node smoke-test.js
+
+  test-from-pack:
+    name: Install from npm pack tarball
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      # The repository's own `npm run build` script relies on the long-unmaintained
+      # `ogulp` package, whose published tarball is missing its CLI entrypoint, so it
+      # cannot run in CI. This step reproduces the same babel transpile the Gulpfile's
+      # `build` task performs (src/decompose.js -> decompose.js) so `main` resolves.
+      - name: Build package entrypoint
+        run: |
+          node -e "
+          const babel = require('babel-core');
+          const fs = require('fs');
+          const result = babel.transformFileSync('src/decompose.js');
+          fs.writeFileSync('decompose.js', result.code);
+          "
+
+      - name: Pack package
+        run: npm pack --pack-destination "${{ runner.temp }}"
+
+      - name: Create temp working directory
+        run: mkdir -p "${{ runner.temp }}/decompose-pack-test"
+
+      - name: Install decompose.js from tarball
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: |
+          npm init -y
+          TARBALL=$(ls "${{ runner.temp }}"/decompose.js-*.tgz)
+          npm i "$TARBALL"
+
+      - name: Write smoke test script
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: |
+          cat > smoke-test.js <<'EOF'
+          const assert = require('assert')
+
+          const pkg = require('decompose.js')
+          const decompose = typeof pkg === 'function' ? pkg : (pkg.decompose || pkg.default)
+
+          assert.ok(pkg, 'the package should be requirable and export something')
+          assert.strictEqual(
+            typeof decompose,
+            'function',
+            'decompose.js should export a decompose function (named, default, or as the module itself)'
+          )
+
+          assert.doesNotThrow(
+            () => decompose({ a: { b: 0 }, c: [1, 2] }),
+            'decompose() should not throw when called with a plain object'
+          )
+          assert.doesNotThrow(
+            () => decompose(42),
+            'decompose() should not throw when called with a primitive value'
+          )
+
+          console.log('decompose.js smoke test passed')
+          EOF
+
+      - name: Run smoke test
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: node smoke-test.js
