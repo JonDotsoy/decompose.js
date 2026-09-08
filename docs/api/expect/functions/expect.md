@@ -2,7 +2,7 @@
 
 > **expect**(`objArg`): `object`
 
-Defined in: [expect.ts:42](https://github.com/JonDotsoy/decompose.js/blob/master/src/expect.ts#L42)
+Defined in: [expect.ts:37](https://github.com/JonDotsoy/decompose.js/blob/master/src/expect.ts#L37)
 
 ## Parameters
 

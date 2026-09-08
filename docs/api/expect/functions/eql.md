@@ -2,17 +2,17 @@
 
 > **eql**(`deObjArg`, `deCompareObjArg`): `boolean`
 
-Defined in: [expect.ts:26](https://github.com/JonDotsoy/decompose.js/blob/master/src/expect.ts#L26)
+Defined in: [expect.ts:21](https://github.com/JonDotsoy/decompose.js/blob/master/src/expect.ts#L21)
 
 ## Parameters
 
 ### deObjArg
 
-[`DecomposedEntry`](../type-aliases/DecomposedEntry.md)[]
+[`DecomposedEntry`](../../decompose/type-aliases/DecomposedEntry.md)[]
 
 ### deCompareObjArg
 
-[`DecomposedEntry`](../type-aliases/DecomposedEntry.md)[]
+[`DecomposedEntry`](../../decompose/type-aliases/DecomposedEntry.md)[]
 
 ## Returns
 

@@ -1,10 +1,5 @@
 # expect
 
-## Type Aliases
-
-- [DecomposedEntry](type-aliases/DecomposedEntry.md)
-- [PathSegment](type-aliases/PathSegment.md)
-
 ## Functions
 
 - [eql](functions/eql.md)
@@ -12,6 +7,18 @@
 
 ## References
 
+### DecomposedEntry
+
+Re-exports [DecomposedEntry](../decompose/type-aliases/DecomposedEntry.md)
+
+***
+
 ### default
 
 Renames and re-exports [expect](functions/expect.md)
+
+***
+
+### PathSegment
+
+Re-exports [PathSegment](../decompose/type-aliases/PathSegment.md)

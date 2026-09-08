@@ -1,12 +1,12 @@
 import { describe, it, expectTypeOf } from 'bun:test'
 
-import decompose, { type DecomposeOptions } from '../src/decompose'
+import decompose, { isObject, type PathSegment, type DecomposedEntry } from '../src/decompose'
 import Composition, { type LoaderCallback } from '../src/Composition'
 import { expect as decomposeExpect, eql } from '../src/expect'
 import type { DecomposedEntry as ExpectDecomposedEntry, PathSegment as ExpectPathSegment } from '../src/expect'
 import { logger, loggerMD } from '../src/logger'
 import type { DecomposedEntry as LoggerDecomposedEntry } from '../src/logger'
-import { decompose as decomposeOld, isObject, isFunction } from '../src/decompose-old'
+import { decompose as decomposeOld, isObject as isObjectOld, isFunction as isFunctionOld } from '../src/decompose-old'
 import type { DecomposedEntry as OldDecomposedEntry, PathSegment as OldPathSegment } from '../src/decompose-old'
 
 /**
@@ -22,16 +22,22 @@ import type { DecomposedEntry as OldDecomposedEntry, PathSegment as OldPathSegme
 
 describe('Type tests', () => {
   describe('decompose.ts', () => {
-    it.skip('decompose() is a function of (unknown, DecomposeOptions?) => Composition | void', () => {
+    it.skip('decompose() is a function of (objArg, fn?, prefix?, history?) => DecomposedEntry[]', () => {
       expectTypeOf(decompose).toBeFunction()
-      expectTypeOf(decompose).parameter(0).toBeUnknown()
-      expectTypeOf(decompose).parameter(1).toEqualTypeOf<DecomposeOptions | undefined>()
-      expectTypeOf(decompose).returns.toEqualTypeOf<Composition | void>()
+      expectTypeOf(decompose).parameter(0).toBeAny()
+      expectTypeOf(decompose).parameter(1).toEqualTypeOf<Function | undefined>()
+      expectTypeOf(decompose).parameter(2).toEqualTypeOf<PathSegment[] | undefined>()
+      expectTypeOf(decompose).parameter(3).toEqualTypeOf<Set<any> | undefined>()
+      expectTypeOf(decompose).returns.toEqualTypeOf<DecomposedEntry[]>()
     })
 
-    it.skip('DecomposeOptions has an optional isOk: boolean', () => {
-      expectTypeOf<DecomposeOptions>().toHaveProperty('isOk')
-      expectTypeOf<DecomposeOptions['isOk']>().toEqualTypeOf<boolean | undefined>()
+    it.skip('isObject() is an (any) => boolean predicate', () => {
+      expectTypeOf(isObject).toEqualTypeOf<(objArg: any) => boolean>()
+    })
+
+    it.skip('DecomposedEntry is a [PathSegment[], any, number?] tuple', () => {
+      expectTypeOf<PathSegment>().toEqualTypeOf<string | symbol>()
+      expectTypeOf<DecomposedEntry>().toEqualTypeOf<[PathSegment[], any, number?]>()
     })
   })
 
@@ -81,9 +87,9 @@ describe('Type tests', () => {
       expectTypeOf(eql).returns.toBeBoolean()
     })
 
-    it.skip('DecomposedEntry is a [PathSegment[], any] tuple', () => {
+    it.skip('DecomposedEntry is re-exported from decompose.ts as [PathSegment[], any, number?]', () => {
       expectTypeOf<ExpectPathSegment>().toEqualTypeOf<string | symbol>()
-      expectTypeOf<ExpectDecomposedEntry>().toEqualTypeOf<[ExpectPathSegment[], any]>()
+      expectTypeOf<ExpectDecomposedEntry>().toEqualTypeOf<[ExpectPathSegment[], any, number?]>()
     })
   })
 
@@ -107,8 +113,8 @@ describe('Type tests', () => {
     })
 
     it.skip('isObject()/isFunction() are (any) => boolean predicates', () => {
-      expectTypeOf(isObject).toEqualTypeOf<(objArg: any) => boolean>()
-      expectTypeOf(isFunction).toEqualTypeOf<(proposal: any) => boolean>()
+      expectTypeOf(isObjectOld).toEqualTypeOf<(objArg: any) => boolean>()
+      expectTypeOf(isFunctionOld).toEqualTypeOf<(proposal: any) => boolean>()
     })
 
     it.skip('DecomposedEntry is a [PathSegment[], any, number?] tuple', () => {

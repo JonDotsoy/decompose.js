@@ -1,10 +1,3 @@
-> **⚠️ Status: work in progress.** This is the `develop` branch. `decompose()` in
-> [`src/decompose.ts`](src/decompose.ts) is currently an unimplemented stub — the
-> examples below describe the intended/published behavior, not what `bun test`
-> reports on this branch today. See [Development status](#development-status).
-
----
-
 # decompose.js 🎼
 
 [![Test](https://github.com/JonDotsoy/decompose.js/actions/workflows/test.yml/badge.svg)](https://github.com/JonDotsoy/decompose.js/actions/workflows/test.yml)
@@ -80,11 +73,12 @@ run `bun run doc` to regenerate it), with an accompanying
 
 | Export | Description |
 | --- | --- |
-| `decompose(value, opts?)` | Default export. Decomposes `value` into a `Composition`. |
-| `Composition` | The tree/diff-aware entity returned by `decompose()`. See [`src/Composition.ts`](src/Composition.ts). |
+| `decompose(objArg)` | Default export. Decomposes `objArg` into a flat `[path, value]` list, as shown above. |
+| `isObject(objArg)` | The `Object(objArg) === objArg` predicate `decompose()` uses to decide what to recurse into. See [`src/decompose.ts`](src/decompose.ts). |
+| `Composition` | A tree/diff-aware entity for a future API direction; not used by `decompose()` today, and still an unimplemented stub. See [`src/Composition.ts`](src/Composition.ts). |
 | `expect(value)` | A small semantic assertion helper built on top of `decompose()`, used in this project's own tests. See [`src/expect.ts`](src/expect.ts). |
 | `logger(decomposedObj, format?)` | Renders a decomposed list as a Markdown table (`format: 'md'`, the only format supported today). See [`src/logger.ts`](src/logger.ts). |
-| `decompose-old` | The previous, fully working implementation of `decompose()`, kept as a reference while `decompose.ts` is being rewritten. See [`src/decompose-old.ts`](src/decompose-old.ts). |
+| `decompose-old` | The pre-rewrite implementation of `decompose()`, kept only as a historical reference now that `decompose.ts` has its own (fixed) implementation — see [Development status](#development-status). See [`src/decompose-old.ts`](src/decompose-old.ts). |
 
 ## Package exports
 
@@ -132,13 +126,23 @@ package both from the npm registry and from a local `npm pack` tarball.
 
 ## Development status
 
-This `develop` branch is mid-refactor: `decompose()` in `src/decompose.ts` is
-an empty stub pending a rewrite, while [`src/decompose-old.ts`](src/decompose-old.ts)
-keeps the previous working implementation for reference. Because of this,
-most of the ported test scenarios in `test/decompose.test.ts` currently fail
-under `bun test` — that reflects the state of this branch, not a regression
-in the build or test tooling. The examples in this README describe the
-intended (and currently published, npm registry) behavior.
+`decompose()` in `src/decompose.ts` re-implements the algorithm that used to
+live directly in `decompose.ts` before this `develop` branch started
+rewriting it (now preserved, unchanged, at
+[`src/decompose-old.ts`](src/decompose-old.ts)), with one deliberate fix: by
+default (i.e. without touching the `global.decomposeGlobalUniqueID` /
+`global.decomposeAssignUniqueID` switches described below), `decompose-old`'s
+lazily-created id-tracking store is a `Set` that its own code then calls
+`.set()` on — a `Set` has no `.set()` method, so the very first nested object
+throws `TypeError: ... .set is not a function`. `decompose.ts` always uses a
+`Map` there instead, and only assigns unique ids when a caller explicitly
+opts in with `global.decomposeAssignUniqueID = 'on'`.
+
+Those two globals are a legacy, process-wide mechanism (inherited from
+`decompose-old.ts`) for the rarely-needed case of tagging every decomposed
+entry with a stable id shared across nested/circular references — used by
+this project's own logger tests. Everyday use of `decompose(value)` never
+needs to touch them.
 
 ## Inspiration
 

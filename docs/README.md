@@ -7,6 +7,6 @@ A util to decompose an object in JavaScript.
   `decompose`, `Composition`, `expect`, `logger`, and `decompose-old`.
 * [Español](./es) — usage guide, in Spanish.
 
-> ⚠️ `decompose()` (`src/decompose.ts`) is currently an unimplemented stub on
-> this branch. See the root [README](../README.md#development-status) for
-> details.
+> `Composition` (`src/Composition.ts`) is a stub for a future API direction
+> and is not used by `decompose()`. See the root
+> [README](../README.md#development-status) for details.

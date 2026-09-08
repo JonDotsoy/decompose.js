@@ -1,13 +1,8 @@
 import isSymbol from 'lodash/isSymbol'
 import uniqueId from 'lodash/uniqueId'
-import { logger } from './logger'
+import { decompose, type PathSegment, type DecomposedEntry } from './decompose'
 
-// `decompose.ts` does not (yet) export `decompose` as a named export; this
-// mirrors the existing (pre-migration) require so behavior is unchanged.
-const { decompose } = require('./decompose')
-
-export type PathSegment = string | symbol
-export type DecomposedEntry = [PathSegment[], any]
+export type { PathSegment, DecomposedEntry }
 
 const listToSymbols = new Map<symbol, string>()
 

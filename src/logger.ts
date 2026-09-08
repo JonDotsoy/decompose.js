@@ -7,12 +7,9 @@ import toUpper from 'lodash/toUpper'
 import padEnd from 'lodash/padEnd'
 import max from 'lodash/max'
 import isSymbol from 'lodash/isSymbol'
+import { isObject, type DecomposedEntry } from './decompose'
 
-// `decompose.ts` does not (yet) export `isObject` as a named export; this
-// mirrors the existing (pre-migration) require so behavior is unchanged.
-const { isObject } = require('./decompose')
-
-export type DecomposedEntry = [(string | symbol)[], any, number?]
+export type { DecomposedEntry }
 
 const toTagCircular = (e?: string) => e ? `[Circular ${e}]` : '[Circular]'
 const DEFAULT_TAG_CIRCULAR = toTagCircular()
