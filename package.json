@@ -45,7 +45,8 @@
     "build:cjs": "for f in decompose expect logger Composition decompose-old; do bun build ./src/$f.ts --outdir . --format cjs --target node; done",
     "build:esm": "for f in decompose expect logger Composition decompose-old; do bun build ./src/$f.ts --outdir . --format esm --target node --entry-naming $f.mjs; done",
     "build:types": "tsc",
-    "test": "bun test"
+    "typecheck": "tsc --noEmit -p tsconfig.test.json",
+    "test": "bun run typecheck && bun test"
   },
   "directories": {
     "doc": "docs",

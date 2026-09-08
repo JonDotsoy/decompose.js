@@ -105,10 +105,12 @@ The same subpaths work with `import` and resolve to `.d.ts` type declarations.
 The project is written in TypeScript and built with [Bun](https://bun.sh):
 
 ```sh
-bun install     # install dependencies
-bun run build   # compile src/*.ts to CJS + ESM + .d.ts at the package root
-bun test        # run the test suite (test/*.test.ts, using bun's built-in test runner)
-bun run doc     # regenerate docs/api/ from src/*.ts with TypeDoc
+bun install       # install dependencies
+bun run build     # compile src/*.ts to CJS + ESM + .d.ts at the package root
+bun run typecheck # type-check src/ and test/ with tsc (no emit)
+bun test          # run the test suite (test/*.test.ts, using bun's built-in test runner)
+bun run test      # typecheck, then bun test — what CI runs
+bun run doc       # regenerate docs/api/ from src/*.ts with TypeDoc
 ```
 
 `bun run build` compiles each entry point (`decompose`, `expect`, `logger`,
@@ -116,8 +118,16 @@ bun run doc     # regenerate docs/api/ from src/*.ts with TypeDoc
 `<name>.mjs` (ESM), and `<name>.d.ts` (types) at the repository root; those
 compiled files are gitignored and only produced on build/publish.
 
+[`test/types.test.ts`](test/types.test.ts) holds compile-time type tests
+written with `expectTypeOf` from `bun:test`. Each case is declared with
+`it.skip` on purpose: bun's `expectTypeOf().parameter(n)` returns `undefined`
+at runtime (the value only exists for TypeScript to narrow at compile time),
+so actually running those bodies would throw. `it.skip` still gets
+type-checked by `tsc` — that's what `bun run typecheck` enforces — while
+showing up as skipped, not failing, under `bun test`.
+
 Pull requests are checked by [`test.yml`](.github/workflows/test.yml), which
-runs the unit tests with `bun test` and also smoke-tests installing the
+runs the unit tests (and type tests) with `bun run test` and also smoke-tests installing the
 package both from the npm registry and from a local `npm pack` tarball.
 
 ## Development status
