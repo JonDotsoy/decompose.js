@@ -1,7 +1,7 @@
 {
   "name": "decompose.js",
   "description": "Decompose a object.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "decompose.js",
   "module": "decompose.mjs",
   "types": "decompose.d.ts",
