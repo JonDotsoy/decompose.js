@@ -2,7 +2,10 @@ name: Publish
 
 on:
   push:
-    branches: [master]
+    # TODO: drop claude/github-workflow-decompose-tests-hvo14d once this
+    # workflow has been exercised/verified on that branch — master alone
+    # should be the long-term trigger.
+    branches: [master, claude/github-workflow-decompose-tests-hvo14d]
   workflow_dispatch:
 
 permissions:
