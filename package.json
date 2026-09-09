@@ -8,8 +8,7 @@
   "files": [
     "*.js",
     "*.mjs",
-    "*.d.ts",
-    "src"
+    "*.d.ts"
   ],
   "exports": {
     ".": {
