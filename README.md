@@ -104,6 +104,7 @@ bun run build     # compile src/*.ts to CJS + ESM + .d.ts at the package root
 bun run typecheck # type-check src/ and test/ with tsc (no emit)
 bun test          # run the test suite (test/*.test.ts, using bun's built-in test runner)
 bun run test      # typecheck, then bun test — what CI runs
+bun run coverage  # bun test --coverage
 bun run doc       # regenerate docs/api/ from src/*.ts with TypeDoc
 ```
 
@@ -123,6 +124,27 @@ showing up as skipped, not failing, under `bun test`.
 Pull requests are checked by [`test.yml`](.github/workflows/test.yml), which
 runs the unit tests (and type tests) with `bun run test` and also smoke-tests installing the
 package both from the npm registry and from a local `npm pack` tarball.
+
+### Coverage
+
+`bun run coverage` reports `src/*.ts`'s line/function coverage. Every file
+hits 100% when its own test file runs in isolation (e.g.
+`bun test test/decompose.test.ts --coverage`); `decompose-old.ts` reports
+lower in the full `bun test --coverage` run specifically, because
+[`test/decompose-old.test.ts`](test/decompose-old.test.ts) deliberately busts
+`require.cache` to re-evaluate that module fresh under different global flags
+(see that file for why) — a real bun coverage-instrumentation quirk around
+re-required modules, not an untested code path.
+
+[`test/roundtrip.test.ts`](test/roundtrip.test.ts) covers `decompose()` a
+different way: it feeds `decompose()`'s own `[path, value]` output into
+[`setimmutable`](https://www.npmjs.com/package/setimmutable)'s `map()` — a
+real, independent, published library (by the same author) whose `map(seed,
+pairs)` reconstructs an object from exactly that shape of pairs, i.e. the
+inverse of what `decompose()` produces — and checks the rebuilt object
+matches the original input. That exercises the full traversal (nested
+objects, arrays becoming real Arrays again, symbol keys) against a genuine
+consumer's expectations, not just hand-written expected arrays.
 
 ## Development status
 

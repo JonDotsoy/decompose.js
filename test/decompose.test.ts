@@ -138,6 +138,31 @@ describe('Module Decompose.js', function () {
         // With decompose/eql
         expect(eql(dePrevObj, deNextObj)).toBe(false)
       })
+
+      it('compares by reference at plain (non-symbol) path segments', () => {
+        const { decompose } = require('../src/decompose')
+        const { eql } = require('../src/expect')
+
+        // Plain string path segments (not symbols) exercise normalizePath's
+        // non-symbol branch, unlike the symbol-keyed fixture above.
+        const obj = { a: { b: 1 } }
+
+        // Same object, decomposed twice: every path resolves to the same
+        // reference both times.
+        expect(eql(decompose(obj), decompose(obj))).toBe(true)
+
+        // Two structurally-equal but independently-created objects: the
+        // root entry alone already points at two different references, so
+        // this is false regardless of what's nested underneath it.
+        expect(eql(decompose({ a: { b: 1 } }), decompose({ a: { b: 1 } }))).toBe(false)
+      })
+
+      it('returns false when the two decomposed lists have different lengths', () => {
+        const { decompose } = require('../src/decompose')
+        const { eql } = require('../src/expect')
+
+        expect(eql(decompose({ a: 1 }), decompose({ a: 1, b: 2 }))).toBe(false)
+      })
     })
 
     describe('expect(value)', function () {
@@ -319,6 +344,25 @@ describe('Module Decompose.js', function () {
         obj[Symbol('b')] = 'OObj'
 
         console.log(logger(decompose(obj)))
+      })
+
+      it('throws TypeError for an unsupported format', () => {
+        const { decompose } = require('../src/decompose')
+        const { logger } = require('../src/logger')
+
+        expect(() => logger(decompose({ a: 1 }), 'yaml')).toThrow(TypeError)
+      })
+
+      it('brackets a path segment that itself contains a dot', () => {
+        const { decompose } = require('../src/decompose')
+        const { logger } = require('../src/logger')
+
+        // pathToString joins segments with '.', so a literal key containing
+        // one (e.g. "a.b") needs to be bracketed -- otherwise the rendered
+        // path would be indistinguishable from two separate segments.
+        const table = logger(decompose({ 'a.b': 1 }))
+
+        expect(table).toContain('[a.b]')
       })
     })
   })
