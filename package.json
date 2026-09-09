@@ -59,9 +59,7 @@
   "author": "Jonathan Delgado <hi@jon.soy>",
   "license": "MIT",
   "dependencies": {
-    "debug": "^2.6.6",
-    "lodash": "^4.17.21",
-    "symbol": "^0.3.0"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/bun": "^1.4.2",

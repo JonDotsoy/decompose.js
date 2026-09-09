@@ -5,9 +5,7 @@
     "": {
       "name": "decompose.js",
       "dependencies": {
-        "debug": "^2.6.6",
         "lodash": "^4.17.21",
-        "symbol": "^0.3.0",
       },
       "devDependencies": {
         "@types/bun": "^1.4.2",
@@ -48,8 +46,6 @@
 
     "bun-types": ["bun-types@1.4.2", "", { "dependencies": { "@types/node": "*" } }, "sha512-bxV1FgK7yBIzjRe5zBozIM4Bem11ZJcCXSrjWRG3YWLt8yFDePu4cLjpebO8OvPeIE9trbyPF4fuj3Cia4Fj3w=="],
 
-    "debug": ["debug@2.6.6", "", { "dependencies": { "ms": "0.7.3" } }, "sha1-qfpvvpykPPHnn3O3XAGJy7fW21o="],
-
     "decompose.js": ["decompose.js@1.0.5", "", {}, "sha512-PCqZs6NSvgfo7sHvfrYmHeYcez8FC6cpTNECsUlpyJsW40w/7EoEmdCeRUTyqaNA6kUcbxCGgofYch6Ku1GaCw=="],
 
     "entities": ["entities@4.5.0", "", {}, "sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw=="],
@@ -68,13 +64,9 @@
 
     "minimatch": ["minimatch@10.2.6", "", { "dependencies": { "brace-expansion": "^5.0.8" } }, "sha512-vpLQEs+VLCr1nU0BXS07maYoFwlDAH0gngQuuttxIwutDFEMHq2blX+8vpgxDdK3J1PwjCJiep77OitTZ4Ll1A=="],
 
-    "ms": ["ms@0.7.3", "", {}, "sha1-cIFVpeROM/X9D8U+gdDUCpG+H/8="],
-
     "punycode.js": ["punycode.js@2.3.1", "", {}, "sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA=="],
 
     "setimmutable": ["setimmutable@1.0.1", "", { "dependencies": { "decompose.js": "^1.0.5", "lodash.setwith": "^4.3.2" } }, "sha512-efk+e5Q5RlEaPR+ahm28gQZQA1cJomPe6vexWLougvKd20hGXpsz/P2IIbd3P4Hb+vdqcJvJ8Oq0mMOor6fdmw=="],
-
-    "symbol": ["symbol@0.3.0", "", {}, "sha1-IX0KAprn+1qk21sCLNDGy8pU5J4="],
 
     "typedoc": ["typedoc@0.28.20", "", { "dependencies": { "@gerrit0/mini-shiki": "^3.23.0", "lunr": "^2.3.9", "markdown-it": "^14.3.0", "minimatch": "^10.2.5", "yaml": "^2.9.0" }, "peerDependencies": { "typescript": "5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x || 5.8.x || 5.9.x || 6.0.x" }, "bin": { "typedoc": "bin/typedoc" } }, "sha512-uSKqkh8Cr48vllnEy+jdaAgOeR6Y+QCBW7usgUsKj7gJEfR7stw9U/fE49LBnj2tPRKPY0c0EBJSWe9Appmplg=="],
 
