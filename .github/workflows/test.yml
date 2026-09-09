@@ -42,7 +42,7 @@ jobs:
           npm init -y
           npm i decompose.js
 
-      - name: Write smoke test script
+      - name: Write require() smoke test script
         working-directory: ${{ runner.temp }}/decompose-npm-test
         run: |
           cat > smoke-test.js <<'EOF'
@@ -67,12 +67,41 @@ jobs:
             'decompose() should not throw when called with a primitive value'
           )
 
-          console.log('decompose.js smoke test passed')
+          console.log('decompose.js require() smoke test passed')
           EOF
 
-      - name: Run smoke test
+      - name: Run require() smoke test
         working-directory: ${{ runner.temp }}/decompose-npm-test
         run: node smoke-test.js
+
+      - name: Write import smoke test script
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: |
+          cat > smoke-test.mjs <<'EOF'
+          import assert from 'assert'
+          import { decompose } from 'decompose.js'
+
+          assert.strictEqual(
+            typeof decompose,
+            'function',
+            'decompose.js should export a named `decompose` via a real ESM import'
+          )
+
+          assert.doesNotThrow(
+            () => decompose({ a: { b: 0 }, c: [1, 2] }),
+            'decompose() should not throw when called with a plain object'
+          )
+          assert.doesNotThrow(
+            () => decompose(42),
+            'decompose() should not throw when called with a primitive value'
+          )
+
+          console.log('decompose.js import smoke test passed')
+          EOF
+
+      - name: Run import smoke test
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: node smoke-test.mjs
 
       - name: Install TypeScript
         working-directory: ${{ runner.temp }}/decompose-npm-test
@@ -154,7 +183,7 @@ jobs:
           TARBALL=$(ls "${{ runner.temp }}"/decompose.js-*.tgz)
           npm i "$TARBALL"
 
-      - name: Write smoke test script
+      - name: Write require() smoke test script
         working-directory: ${{ runner.temp }}/decompose-pack-test
         run: |
           cat > smoke-test.js <<'EOF'
@@ -179,12 +208,41 @@ jobs:
             'decompose() should not throw when called with a primitive value'
           )
 
-          console.log('decompose.js smoke test passed')
+          console.log('decompose.js require() smoke test passed')
           EOF
 
-      - name: Run smoke test
+      - name: Run require() smoke test
         working-directory: ${{ runner.temp }}/decompose-pack-test
         run: node smoke-test.js
+
+      - name: Write import smoke test script
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: |
+          cat > smoke-test.mjs <<'EOF'
+          import assert from 'assert'
+          import { decompose } from 'decompose.js'
+
+          assert.strictEqual(
+            typeof decompose,
+            'function',
+            'decompose.js should export a named `decompose` via a real ESM import'
+          )
+
+          assert.doesNotThrow(
+            () => decompose({ a: { b: 0 }, c: [1, 2] }),
+            'decompose() should not throw when called with a plain object'
+          )
+          assert.doesNotThrow(
+            () => decompose(42),
+            'decompose() should not throw when called with a primitive value'
+          )
+
+          console.log('decompose.js import smoke test passed')
+          EOF
+
+      - name: Run import smoke test
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: node smoke-test.mjs
 
       - name: Install TypeScript
         working-directory: ${{ runner.temp }}/decompose-pack-test
