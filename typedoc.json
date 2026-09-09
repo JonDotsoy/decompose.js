@@ -1,0 +1,17 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "src/decompose.ts",
+    "src/Composition.ts",
+    "src/expect.ts",
+    "src/logger.ts",
+    "src/decompose-old.ts"
+  ],
+  "out": "docs/api",
+  "plugin": ["typedoc-plugin-markdown"],
+  "readme": "none",
+  "hideBreadcrumbs": true,
+  "hidePageHeader": true,
+  "excludeExternals": true,
+  "gitRevision": "master"
+}

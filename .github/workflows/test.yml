@@ -1,0 +1,285 @@
+name: Test
+
+on:
+  pull_request:
+
+jobs:
+  unit-tests:
+    name: Run unit tests (bun test)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      # Runs `tsc --noEmit` (type tests included, see test/types.test.ts)
+      # before `bun test`, same as `bun run test` locally.
+      - name: Run tests
+        run: bun run test
+
+  test-from-npm:
+    name: Install from npm registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Create temp working directory
+        run: mkdir -p "${{ runner.temp }}/decompose-npm-test"
+
+      - name: Install decompose.js from npm
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: |
+          npm init -y
+          npm i decompose.js
+
+      - name: Write require() smoke test script
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: |
+          cat > smoke-test.js <<'EOF'
+          const assert = require('assert')
+
+          const pkg = require('decompose.js')
+          const decompose = typeof pkg === 'function' ? pkg : (pkg.decompose || pkg.default)
+
+          assert.ok(pkg, 'the package should be requirable and export something')
+          assert.strictEqual(
+            typeof decompose,
+            'function',
+            'decompose.js should export a decompose function (named, default, or as the module itself)'
+          )
+
+          assert.doesNotThrow(
+            () => decompose({ a: { b: 0 }, c: [1, 2] }),
+            'decompose() should not throw when called with a plain object'
+          )
+          assert.doesNotThrow(
+            () => decompose(42),
+            'decompose() should not throw when called with a primitive value'
+          )
+
+          console.log('decompose.js require() smoke test passed')
+          EOF
+
+      - name: Run require() smoke test
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: node smoke-test.js
+
+      - name: Write import smoke test script
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: |
+          cat > smoke-test.mjs <<'EOF'
+          import assert from 'assert'
+          import { decompose } from 'decompose.js'
+
+          assert.strictEqual(
+            typeof decompose,
+            'function',
+            'decompose.js should export a named `decompose` via a real ESM import'
+          )
+
+          assert.doesNotThrow(
+            () => decompose({ a: { b: 0 }, c: [1, 2] }),
+            'decompose() should not throw when called with a plain object'
+          )
+          assert.doesNotThrow(
+            () => decompose(42),
+            'decompose() should not throw when called with a primitive value'
+          )
+
+          console.log('decompose.js import smoke test passed')
+          EOF
+
+      - name: Run import smoke test
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: node smoke-test.mjs
+
+      - name: Install TypeScript
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: npm i -D typescript
+
+      - name: Write type smoke test script
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: |
+          cat > smoke-test.ts <<'EOF'
+          // `decompose()` from `require()` rather than a typed `import`: the currently
+          // published npm package ships no .d.ts, so a typed import would fail to
+          // resolve here even though it works fine against this repo's own build
+          // (see test-from-pack). `declare function require` keeps this self-contained,
+          // with no need for @types/node in this throwaway project.
+          declare function require (id: string): any
+
+          const pkg: any = require('decompose.js')
+          const decompose: any = typeof pkg === 'function' ? pkg : (pkg.decompose || pkg.default)
+
+          if (typeof decompose !== 'function') {
+            throw new Error('decompose.js should export a decompose function (named, default, or as the module itself)')
+          }
+
+          decompose({ a: { b: 0 }, c: [1, 2] })
+          decompose(42)
+
+          console.log('decompose.js type smoke test passed')
+          EOF
+          cat > tsconfig.json <<'EOF'
+          {
+            "compilerOptions": {
+              "target": "ES2019",
+              "module": "Node16",
+              "esModuleInterop": true,
+              "skipLibCheck": true,
+              "noEmit": true
+            },
+            "files": ["smoke-test.ts"]
+          }
+          EOF
+
+      - name: Type-check the smoke test with tsc --noEmit
+        working-directory: ${{ runner.temp }}/decompose-npm-test
+        run: npx tsc --noEmit
+
+  test-from-pack:
+    name: Install from npm pack tarball
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build package (bun build + tsc declarations)
+        run: bun run build
+
+      - name: Pack package
+        run: npm pack --pack-destination "${{ runner.temp }}"
+
+      - name: Create temp working directory
+        run: mkdir -p "${{ runner.temp }}/decompose-pack-test"
+
+      - name: Install decompose.js from tarball
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: |
+          npm init -y
+          TARBALL=$(ls "${{ runner.temp }}"/decompose.js-*.tgz)
+          npm i "$TARBALL"
+
+      - name: Write require() smoke test script
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: |
+          cat > smoke-test.js <<'EOF'
+          const assert = require('assert')
+
+          const pkg = require('decompose.js')
+          const decompose = typeof pkg === 'function' ? pkg : (pkg.decompose || pkg.default)
+
+          assert.ok(pkg, 'the package should be requirable and export something')
+          assert.strictEqual(
+            typeof decompose,
+            'function',
+            'decompose.js should export a decompose function (named, default, or as the module itself)'
+          )
+
+          assert.doesNotThrow(
+            () => decompose({ a: { b: 0 }, c: [1, 2] }),
+            'decompose() should not throw when called with a plain object'
+          )
+          assert.doesNotThrow(
+            () => decompose(42),
+            'decompose() should not throw when called with a primitive value'
+          )
+
+          console.log('decompose.js require() smoke test passed')
+          EOF
+
+      - name: Run require() smoke test
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: node smoke-test.js
+
+      - name: Write import smoke test script
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: |
+          cat > smoke-test.mjs <<'EOF'
+          import assert from 'assert'
+          import { decompose } from 'decompose.js'
+
+          assert.strictEqual(
+            typeof decompose,
+            'function',
+            'decompose.js should export a named `decompose` via a real ESM import'
+          )
+
+          assert.doesNotThrow(
+            () => decompose({ a: { b: 0 }, c: [1, 2] }),
+            'decompose() should not throw when called with a plain object'
+          )
+          assert.doesNotThrow(
+            () => decompose(42),
+            'decompose() should not throw when called with a primitive value'
+          )
+
+          console.log('decompose.js import smoke test passed')
+          EOF
+
+      - name: Run import smoke test
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: node smoke-test.mjs
+
+      - name: Install TypeScript
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: npm i -D typescript
+
+      - name: Write type smoke test script
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: |
+          cat > smoke-test.ts <<'EOF'
+          import decompose, { isObject } from 'decompose.js'
+          import { logger } from 'decompose.js/logger'
+          import { expect } from 'decompose.js/expect'
+
+          const decomposed = decompose({ a: { b: 0 }, c: [1, 2] })
+          const [firstPath, firstValue]: [unknown[], unknown, number?] = decomposed[0]
+
+          if (typeof decompose !== 'function') throw new Error('decompose.js should export a callable default')
+          if (typeof isObject !== 'function') throw new Error('decompose.js should export isObject')
+
+          logger(decomposed)
+          expect({}).eq({})
+          EOF
+          cat > tsconfig.json <<'EOF'
+          {
+            "compilerOptions": {
+              "target": "ES2019",
+              "module": "ESNext",
+              "moduleResolution": "Bundler",
+              "esModuleInterop": true,
+              "strict": true,
+              "skipLibCheck": true,
+              "noEmit": true
+            },
+            "files": ["smoke-test.ts"]
+          }
+          EOF
+
+      - name: Type-check the smoke test against decompose.js's shipped .d.ts
+        working-directory: ${{ runner.temp }}/decompose-pack-test
+        run: npx tsc --noEmit

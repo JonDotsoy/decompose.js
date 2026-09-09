@@ -1,0 +1,103 @@
+name: Publish
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write # to create the GitHub release (and its tag)
+  id-token: write # for npm's OIDC trusted publishing (no NPM_TOKEN needed)
+
+jobs:
+  publish:
+    name: Publish to npm and create the GitHub release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read name/version from package.json
+        id: pkg
+        run: |
+          NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+
+      # Runs on every push to master, so this needs to be idempotent: only
+      # publish/release when package.json's version hasn't been released yet.
+      - name: Check whether a GitHub release already exists for this version
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${{ steps.pkg.outputs.tag }}" --repo "${{ github.repository }}" >/dev/null 2>&1; then
+            echo "This version's release (${{ steps.pkg.outputs.tag }}) already exists, skipping."
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Bun
+        if: steps.check.outputs.exists == 'false'
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        if: steps.check.outputs.exists == 'false'
+        run: bun install
+
+      - name: Run tests
+        if: steps.check.outputs.exists == 'false'
+        run: bun run test
+
+      - name: Build package
+        if: steps.check.outputs.exists == 'false'
+        run: bun run build
+
+      - name: Set up Node.js
+        if: steps.check.outputs.exists == 'false'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
+      # OIDC trusted publishing needs a recent npm CLI (>=11.5.0); the one
+      # bundled with setup-node's Node version may be older.
+      - name: Ensure npm supports OIDC trusted publishing
+        if: steps.check.outputs.exists == 'false'
+        run: npm install -g npm@latest
+
+      # No NPM_TOKEN/NODE_AUTH_TOKEN: with `id-token: write` and the package's
+      # Trusted Publisher configured on npmjs.com for this repo + workflow,
+      # npm exchanges the job's OIDC token for a short-lived publish token.
+      - name: Publish to npm
+        if: steps.check.outputs.exists == 'false'
+        run: npm publish --provenance
+
+      - name: Create GitHub release
+        if: steps.check.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ steps.pkg.outputs.tag }}"
+          NPM_URL="https://www.npmjs.com/package/${{ steps.pkg.outputs.name }}/v/${{ steps.pkg.outputs.version }}"
+
+          gh release create "$TAG" \
+            --repo "${{ github.repository }}" \
+            --title "$TAG" \
+            --target "${{ github.sha }}" \
+            --generate-notes
+
+          # Prepend the npm package URL to the auto-generated notes.
+          gh release view "$TAG" --repo "${{ github.repository }}" --json body -q .body > "$RUNNER_TEMP/generated-notes.md"
+          {
+            echo "📦 npm: $NPM_URL"
+            echo
+            cat "$RUNNER_TEMP/generated-notes.md"
+          } > "$RUNNER_TEMP/release-notes.md"
+
+          gh release edit "$TAG" --repo "${{ github.repository }}" --notes-file "$RUNNER_TEMP/release-notes.md"
